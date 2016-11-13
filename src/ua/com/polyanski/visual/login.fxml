@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="115.0" layoutY="28.0" prefHeight="45.0" prefWidth="171.0" text="Login seller" textFill="#56a192">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="33.0" layoutY="20.0" text="Login:" />
+            <Label layoutX="33.0" layoutY="71.0" text="Password:" />
+            <TextField fx:id="loginField" layoutX="158.0" layoutY="15.0" />
+            <PasswordField fx:id="passwordField" layoutX="158.0" layoutY="59.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="sigInButton" layoutX="322.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Sig in" />
+            <Button fx:id="sigUpButton" layoutX="237.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Sig up" />
+            <Hyperlink fx:id="forgotHyperlink" layoutX="14.0" layoutY="50.0" text="I forgot my password.." />
+            <Button fx:id="adminButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" text="Admin" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

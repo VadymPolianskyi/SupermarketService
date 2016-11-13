@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="162.0" fitWidth="153.0" layoutX="22.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@about2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="208.0" layoutY="62.0" prefHeight="95.0" prefWidth="372.0" text="Supermarket service" textFill="#66b2a0">
+               <font>
+                  <Font name="System Bold Italic" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="142.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="43.0" layoutY="28.0" prefHeight="95.0" prefWidth="170.0" style="-fx-background-color: white;" text="This program was created to help supermarkets in their work. I hope, &quot;Supermarket service&quot; will give enjoy supermarket's workers." textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="74.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="517.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@about.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="300.0" layoutY="27.0" text="© 2016 Vadym Polyanski " />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
