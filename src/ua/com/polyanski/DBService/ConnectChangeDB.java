@@ -13,9 +13,11 @@ public class ConnectChangeDB extends ConnectDB{
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
     private String tableName;
+    private String column;
 
-    public ConnectChangeDB(String tableName) {
+    public ConnectChangeDB(String tableName, String column) {
         this.tableName = tableName;
+        this.column = column;
     }
 
     public ArrayList select() {
@@ -31,7 +33,7 @@ public class ConnectChangeDB extends ConnectDB{
             res = stmt.executeQuery(sql);
 
             while(res.next()) {
-                types.add(res.getString("name"));
+                types.add(res.getString("name" + column));
             }
             return types;
 

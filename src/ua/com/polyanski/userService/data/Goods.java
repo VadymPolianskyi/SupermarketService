@@ -7,10 +7,10 @@ import java.util.List;
  * Created by vadym on 09.11.2016.
  */
 public class Goods{
-    List<Good> goods = new ArrayList<Good>();
+    List<Good> goods;
 
-    public Goods(List<Good> goods) {
-        this.goods = goods;
+    public Goods() {
+        this.goods =  new ArrayList<Good>();
     }
 
     public void add(Good good) {
