@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.CashRegisterController">
    <children>
       <MenuBar>
         <menus>
@@ -87,7 +87,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="323.0" layoutY="89.0" prefHeight="15.0" prefWidth="273.0" text="Seller" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="300.0" />
+            <Label fx:id="sellerLowLabel" layoutX="323.0" layoutY="89.0" prefHeight="15.0" prefWidth="298.0" text="Seller" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
             <Pane layoutX="386.0" layoutY="103.0" prefHeight="70.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <children>
                   <Button fx:id="buyButton" layoutX="481.0" layoutY="23.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Buy" />
@@ -96,7 +96,7 @@
                   <Button fx:id="clearButton" layoutX="287.0" layoutY="23.0" mnemonicParsing="false" prefWidth="65.0" text="Clear" />
                </children>
             </Pane>
-            <Label layoutX="462.0" layoutY="89.0" text="Time:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" />
+            <Label fx:id="timelowLabel" layoutX="462.0" layoutY="89.0" prefHeight="15.0" prefWidth="273.0" text="Time:" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children></AnchorPane>
    </children>
 </VBox>
