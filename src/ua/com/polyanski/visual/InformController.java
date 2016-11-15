@@ -7,4 +7,6 @@ public class InformController {
     public void yes() {
         System.out.println("yes");
     }
+    public void  no() {System.out.println("no");
+    }
 }

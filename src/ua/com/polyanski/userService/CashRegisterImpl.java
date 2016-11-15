@@ -23,7 +23,7 @@ public class CashRegisterImpl implements CashRegister{
     }
 
     @Override
-    public double build(Goods goods, int number) {
+    public double bill(Goods goods) {
         double price = 0;
         for (int i = 0; i < goods.size(); i++) {
             price += purchasePrice(goods.get(i));
@@ -32,8 +32,7 @@ public class CashRegisterImpl implements CashRegister{
         return price;
     }
 
-    @Override
-    public void paid() {
+    public void setPaid() {
         paid = true;
     }
 

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.AdminPassController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AdminPassController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="170.0">
          <children>
-            <Label layoutX="42.0" layoutY="56.0" text="Password:" />
-            <PasswordField layoutX="142.0" layoutY="51.0" />
-            <Label layoutX="99.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" text="Administrator" textFill="#3f906b">
+            <Label layoutX="26.0" layoutY="56.0" text="Password:" />
+            <PasswordField fx:id="passwordAdminField" layoutX="99.0" layoutY="53.0" />
+            <Label alignment="CENTER" layoutX="99.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" text="Administrator" textFill="#3f906b">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
+            <Button layoutX="264.0" layoutY="53.0" mnemonicParsing="false" onAction="#checkPass" text="Sign in" />
          </children>
       </AnchorPane>
    </children>
