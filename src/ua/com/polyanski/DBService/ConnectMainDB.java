@@ -15,6 +15,12 @@ public class ConnectMainDB extends ConnectDB {
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
 
+    public void setBarcode(String barcode) {
+        this.barcode = "= '" + barcode + "'";
+    }
+
+    public String barcode = "";
+
 
 
 
@@ -24,6 +30,7 @@ public class ConnectMainDB extends ConnectDB {
             Driver driver = (Driver) Class.forName("org.sqlite.JDBC").newInstance();
 
             conn = DriverManager.getConnection(URL);
+
 
             sql = "    select\n" +
                     "\n" +
@@ -41,7 +48,7 @@ public class ConnectMainDB extends ConnectDB {
                     "    from Good good\n" +
                     "    inner join spr_Type type on good.type = type.id\n" +
                     "    inner join spr_Name name on good.name = name.id\n" +
-                    "    inner join spr_Model model on good.model = model.id and flag = 0";
+                    "    inner join spr_Model model on good.model = model.id and flag = 0 and barcode " + barcode;
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);

@@ -1,5 +1,8 @@
 package ua.com.polyanski.userService.data;
 
+import ua.com.polyanski.userService.CashRegister;
+import ua.com.polyanski.userService.CashRegisterImpl;
+
 /**
  * Created by vadym on 09.11.2016.
  */
@@ -70,6 +73,12 @@ public class Good {
         this.number = number;
         this.sale = sale;
         this.flag = flag;
+        newPriceWithSale();
+    }
+
+    public void newPriceWithSale() {
+        this.price = CashRegisterImpl.purchasePrice(this);
+        this.sale = 0;
     }
 
     public Good(String value) {
@@ -78,6 +87,10 @@ public class Good {
 
     public void salling(int index) {
         this.number = number - index;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
 

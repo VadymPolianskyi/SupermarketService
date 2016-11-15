@@ -12,11 +12,11 @@ public class CashRegisterImpl implements CashRegister{
 
     boolean paid = false;
 
-    public double purchasePrice(Good good) {
+    public static double purchasePrice(Good good) {
         int sale = good.getSale();
         double price = good.getPrice();
         if (sale != 0) {
-            return price * sale /100;
+            return (price -  price * sale /100);
         }
 
         return price;
@@ -26,7 +26,7 @@ public class CashRegisterImpl implements CashRegister{
     public double bill(Goods goods) {
         double price = 0;
         for (int i = 0; i < goods.size(); i++) {
-            price += purchasePrice(goods.get(i));
+            price += purchasePrice(goods.get(i))* goods.get(i).getNumber();
         }
 
         return price;
