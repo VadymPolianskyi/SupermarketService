@@ -10,7 +10,7 @@ public class PasswordService {
     ConnectAnotherDB sallerDB;
 
     public boolean checkPassword(String login,String password) {
-        sallerDB = new ConnectAnotherDB("Saller", "password", login);
+        sallerDB = new ConnectAnotherDB("Seller", "password", login);
         if (sallerDB.select().equals(password)) {
             return true;
         } else {
@@ -19,7 +19,7 @@ public class PasswordService {
     }
 
     public void setNewPassword(String login, String password) {
-        sallerDB = new ConnectAnotherDB("Saller", "password", login);
+        sallerDB = new ConnectAnotherDB("Seller", "password", login);
         sallerDB.updatePassword(password, login);
     }
 

@@ -8,11 +8,30 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AddGoodsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AddGoodsAndSellersController">
   <children>
+    <MenuBar style="fx-background: white">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
     <TabPane prefHeight="527.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
-        <Tab text="Untitled Tab 1">
+        <Tab text="Goods">
           <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="317.0" prefWidth="600.0">
               <children>
@@ -38,16 +57,16 @@
                           </font>
                         </Label>
                         <Label fx:id="typeLabel" font="$x1" layoutX="300.0" text="Type:" AnchorPane.topAnchor="14.0" />
-                        <Label fx:id="nameLabel" font="$x1" layoutY="40.0" text="Number:" AnchorPane.leftAnchor="20.0" />
-                        <Label fx:id="modelLabel" font="$x1" layoutX="300.0" text="Model:" AnchorPane.topAnchor="42.0" />
+                        <Label id="nameLabel" fx:id="numberLabel" font="$x1" layoutY="40.0" text="Number:" AnchorPane.leftAnchor="20.0" />
+                        <Label id="modelLabel" fx:id="nameLabel" font="$x1" layoutX="300.0" text="Name:" AnchorPane.topAnchor="42.0" />
                         <Label fx:id="priceLabel" font="$x1" text="Price:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="68.0" />
-                        <Label fx:id="numberLabel" font="$x1" layoutX="301.0" layoutY="70.0" text="Name:" />
+                        <Label id="numberLabel" fx:id="modelLabel" font="$x1" layoutX="300.0" layoutY="72.0" text="Model:" />
                         <Label fx:id="saleLabel" layoutY="95.0" text="Sale:" AnchorPane.leftAnchor="20.0" />
-                        <TextField fx:id="barCodeField" layoutX="91.0" layoutY="11.0" />
+                        <TextField fx:id="barCodeField" layoutX="91.0" layoutY="11.0" promptText="8 charapters" />
                         <TextField id="nameField" fx:id="numberField" layoutX="91.0" AnchorPane.topAnchor="38.0" />
-                        <TextField fx:id="priceField" layoutX="91.0" AnchorPane.topAnchor="65.0" />
-                        <TextField fx:id="saleField" layoutX="91.0" AnchorPane.topAnchor="91.0" />
-                        <ChoiceBox fx:id="typeCheckBox" layoutX="383.0" layoutY="14.0" prefWidth="145.0">
+                        <TextField fx:id="priceField" layoutX="91.0" promptText="UAH" AnchorPane.topAnchor="65.0" />
+                        <TextField fx:id="saleField" layoutX="91.0" promptText="\%" AnchorPane.topAnchor="91.0" />
+                        <ComboBox fx:id="typeComboBox" layoutX="396.0" layoutY="15.0" prefHeight="21.0" prefWidth="145.0" promptText="Choose">
                           <items>
                             <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Item 1" />
@@ -55,8 +74,8 @@
                               <String fx:value="Item 3" />
                             </FXCollections>
                           </items>
-                        </ChoiceBox>
-                        <ChoiceBox fx:id="modelCheckBox" layoutX="383.0" layoutY="39.0" prefWidth="145.0">
+                        </ComboBox>
+                        <ComboBox id="modelComboBox" fx:id="nameComboBox" layoutX="396.0" layoutY="42.0" prefHeight="21.0" prefWidth="145.0" promptText="Choose">
                           <items>
                             <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Item 1" />
@@ -64,8 +83,8 @@
                               <String fx:value="Item 3" />
                             </FXCollections>
                           </items>
-                        </ChoiceBox>
-                        <ChoiceBox fx:id="nameCheckBox" layoutX="383.0" layoutY="67.0" prefWidth="145.0">
+                        </ComboBox>
+                        <ComboBox id="nameComboBox" fx:id="modelComboBox" layoutX="396.0" layoutY="68.0" prefHeight="21.0" prefWidth="145.0" promptText="Choose">
                           <items>
                             <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Item 1" />
@@ -73,7 +92,9 @@
                               <String fx:value="Item 3" />
                             </FXCollections>
                           </items>
-                        </ChoiceBox>
+                        </ComboBox>
+                        <Label layoutX="300.0" layoutY="98.0" text="Expiration date:" />
+                        <TextField fx:id="expirationDateField" layoutX="396.0" layoutY="96.0" prefWidth="145.0" promptText="Year-Month-Date" />
                       </children>
                     </AnchorPane>
                     <AnchorPane prefHeight="211.0" prefWidth="600.0">
@@ -85,7 +106,7 @@
                           <columns>
                             <TableColumn prefWidth="75.0" text="Bar code" fx:id="barCodeColum" />
                             <TableColumn prefWidth="75.0" text="Type" fx:id="typeColum" />
-                            <TableColumn prefWidth="75.0" text="Name" fx:id="nameColumn" />
+                            <TableColumn prefWidth="75.0" text="Name" fx:id="nameColum" />
                             <TableColumn prefWidth="75.0" text="Model" fx:id="modelColum" />
                             <TableColumn prefWidth="75.0" text="Price" fx:id="priceColum" />
                             <TableColumn prefWidth="75.0" text="Number" fx:id="numberColum" />
@@ -98,9 +119,9 @@
                       <children>
                         <Pane prefHeight="48.0" prefWidth="560.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                           <children>
-                            <Button fx:id="addButton" layoutX="389.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Add" />
-                            <Button fx:id="closeButton" layoutX="476.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Close" />
-                            <Button fx:id="changeButton" layoutX="301.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Change" />
+                            <Button fx:id="addButton" layoutX="389.0" layoutY="14.0" mnemonicParsing="false" onAction="#addGoods" prefHeight="25.0" prefWidth="68.0" text="Add" />
+                            <Button fx:id="closeButton" layoutX="476.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeGoods" prefHeight="25.0" prefWidth="68.0" text="Close" />
+                            <Button fx:id="changeButton" layoutX="301.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeGoods" prefHeight="25.0" prefWidth="68.0" text="Change" />
                           </children>
                         </Pane>
                       </children>
@@ -111,7 +132,7 @@
             </AnchorPane>
           </content>
         </Tab>
-        <Tab text="Untitled Tab 2">
+        <Tab text="Sallers">
           <content>
             <VBox prefHeight="200.0" prefWidth="100.0">
               <children>
@@ -132,7 +153,7 @@
                     <TextField fx:id="loginSecondField" layoutX="129.0" layoutY="92.0" />
                     <PasswordField fx:id="oldPasswordField" layoutX="413.0" layoutY="9.0" prefWidth="138.0" />
                     <Label layoutX="300.0" layoutY="12.0" text="Old password:" />
-                    <Button fx:id="changePasswordButton" layoutX="436.0" layoutY="102.0" mnemonicParsing="false" text="Change password" />
+                    <Button fx:id="changePasswordButton" layoutX="436.0" layoutY="102.0" mnemonicParsing="false" onAction="#changePassword" text="Change password" />
                     <Label layoutX="300.0" layoutY="42.0" text="New password:" />
                     <Label layoutX="300.0" layoutY="67.0" text="New password:" />
                     <PasswordField fx:id="newPasswordField" layoutX="413.0" layoutY="39.0" prefWidth="138.0" />
@@ -147,16 +168,16 @@
                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Surname" fx:id="surnameColumn" />
                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="123.0" text="Date of birth" fx:id="birthColumn" />
                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="91.0" text="Login" fx:id="loginColumn" />
-                        <TableColumn prefWidth="75.0" text="Sales/month" />
+                        <TableColumn prefWidth="75.0" text="Sales/month" fx:id="salesToMonth" />
                       </columns>
                     </TableView>
                   </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="73.0" prefWidth="600.0">
                   <children>
-                    <Button fx:id="chooseSecondButton" layoutX="515.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Close" />
-                    <Button fx:id="addSecondButton" layoutX="426.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Add" />
-                    <Button fx:id="changeSecondButton" layoutX="336.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Change" />
+                    <Button fx:id="chooseSecondButton" layoutX="515.0" layoutY="19.0" mnemonicParsing="false" onAction="#closeSellers" prefHeight="25.0" prefWidth="68.0" text="Close" />
+                    <Button fx:id="addSecondButton" layoutX="426.0" layoutY="19.0" mnemonicParsing="false" onAction="#addSellers" prefHeight="25.0" prefWidth="68.0" text="Add" />
+                    <Button fx:id="changeSecondButton" layoutX="336.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeSellers" prefHeight="25.0" prefWidth="68.0" text="Change" />
                   </children>
                 </AnchorPane>
               </children>

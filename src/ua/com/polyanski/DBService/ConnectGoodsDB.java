@@ -8,17 +8,12 @@ import java.sql.*;
 /**
  * Created by vadym on 09.11.2016.
  */
-public class ConnectMainDB extends ConnectDB {
+public class ConnectGoodsDB extends ConnectDB {
     Connection conn = null;
     Statement stmt = null;
     ResultSet res = null;
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
-
-    public void setBarcode(String barcode) {
-        this.barcode = "= '" + barcode + "'";
-    }
-
     public String barcode = "";
 
 
@@ -54,8 +49,8 @@ public class ConnectMainDB extends ConnectDB {
             res = stmt.executeQuery(sql);
 
             while(res.next()) {
-                goods.add(new Good(res.getString("barcode"), res.getInt("id"), res.getString("name"),
-                        res.getString("nameType"), res.getString("nameModel"), res.getString("expiration_date"),
+                goods.add(new Good(res.getString("barcode"), res.getInt("id"), res.getString("nameType"),
+                        res.getString("name"), res.getString("nameModel"), res.getString("expiration_date"),
                             res.getDouble("price"), res.getInt("number"), res.getInt("sale"), res.getInt("flag")));
             }
             return goods;
@@ -83,7 +78,6 @@ public class ConnectMainDB extends ConnectDB {
                     "                   '" + good.getExpiration_date() + "', " + good.getPrice() + ", " + good.getNumber() +
                     "," + good.getSale() + ", " + good.getFlag() +", "+ good.getBarcode() +
                     " from spr_Type where nameType =  '" + good.getType() + "'";
-
         changesTable(sql);
 
     }
@@ -109,6 +103,10 @@ public class ConnectMainDB extends ConnectDB {
                 "set flag = 1 where id = " + id;
 
         changesTable(sql);
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = "= '" + barcode + "'";
     }
 
 

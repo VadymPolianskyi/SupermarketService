@@ -1,6 +1,6 @@
 package ua.com.polyanski.userService;
 
-import ua.com.polyanski.DBService.ConnectMainDB;
+import ua.com.polyanski.DBService.ConnectGoodsDB;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 
@@ -8,7 +8,7 @@ import ua.com.polyanski.userService.data.Goods;
  * Created by vadym on 10.11.2016.
  */
 public class CashRegisterImpl implements CashRegister{
-    ConnectMainDB connectMainDB = new ConnectMainDB();
+    ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
 
     boolean paid = false;
 

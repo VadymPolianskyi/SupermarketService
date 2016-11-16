@@ -13,10 +13,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
-import ua.com.polyanski.DBService.ConnectMainDB;
-import ua.com.polyanski.userService.CashRegister;
+import ua.com.polyanski.DBService.ConnectGoodsDB;
 import ua.com.polyanski.userService.CashRegisterImpl;
 import ua.com.polyanski.userService.StringUtilities;
 import ua.com.polyanski.userService.data.Good;
@@ -29,7 +27,7 @@ public class CashRegisterController {
     Goods goods = new Goods();
 
     Good addGood = null;
-    ConnectMainDB connectMainDB;
+    ConnectGoodsDB connectGoodsDB;
 
     private ObservableList<Good> goodData = FXCollections.observableArrayList();
     CashRegisterImpl cashRegister = new CashRegisterImpl();
@@ -82,21 +80,13 @@ public class CashRegisterController {
         bindToTime();
     }
 
-    private void initData() {
-//        ConnectMainDB connectMainDB = new ConnectMainDB();
-//        Goods goods = new Goods();
-//        goods = connectMainDB.select();
-//
-//        for (int i = 0; i < goods.size(); i++ ) {
-//            goodData.add(goods.get(i));
-//        }
-    }
+
 
     public void writing() {
         if(barCodeField.getText().length() == 8) {
-            connectMainDB= new ConnectMainDB();
-            connectMainDB.setBarcode(barCodeField.getText());
-            Goods show = connectMainDB.select();
+            connectGoodsDB = new ConnectGoodsDB();
+            connectGoodsDB.setBarcode(barCodeField.getText());
+            Goods show = connectGoodsDB.select();
             if (show.size() == 0) {
                 return;
             }
@@ -116,12 +106,14 @@ public class CashRegisterController {
         } else {
             if (numberField.getText().length() == 0) {
                 addGood.setNumber(1);
+                addGood.newPriceWithSale();
                 goodData.add(addGood);
                 goods.add(addGood);
                 priceLabel.setText(String.valueOf(cashRegister.bill(goods)));
                 initialize();
             } else {
                 addGood.setNumber(Integer.parseInt(numberField.getText()));
+                addGood.newPriceWithSale();
                 goodData.add(addGood);
                 goods.add(addGood);
                 priceLabel.setText(String.valueOf(cashRegister.bill(goods)));

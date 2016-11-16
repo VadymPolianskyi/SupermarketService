@@ -73,12 +73,10 @@ public class Good {
         this.number = number;
         this.sale = sale;
         this.flag = flag;
-        newPriceWithSale();
     }
 
     public void newPriceWithSale() {
         this.price = CashRegisterImpl.purchasePrice(this);
-        this.sale = 0;
     }
 
     public Good(String value) {
