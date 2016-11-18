@@ -6,16 +6,16 @@ import ua.com.polyanski.userService.data.Sellers;
 import java.sql.*;
 
 /**
- * Created by vadym on 16.11.2016.
+ * Created by vadym on 18.11.2016.
  */
-public class ConnectSellersDB extends ConnectDB {
+public class ConnectSalesDB extends ConnectDB {
     Connection conn = null;
     Statement stmt = null;
     ResultSet res = null;
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
 
-    public Sellers select() {
+    public Sellers select(int id) {
         Sellers sellers = new Sellers();
 
         try {
@@ -23,22 +23,15 @@ public class ConnectSellersDB extends ConnectDB {
             conn = DriverManager.getConnection(URL);
 
             sql = "select\n" +
-                    "id, name, surname, birthday,login,password\n" +
-                    "from Seller";
+                    "good_id, date_sale, count_goods\n" +
+                    "from Sale where saller_id = " + id;
 
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);
 
             while (res.next()) {
-                Seller seller = new Seller();
-                seller.setId(res.getInt("id"));
-                seller.setName(res.getString("name"));
-                seller.setSurname(res.getString("surname"));
-                seller.setBirthday(res.getString("birthday"));
-                seller.setLogin(res.getString("login"));
-                seller.setPassword(res.getString("password"));
-                sellers.add(seller);
+
             }
             return sellers;
         } catch (InstantiationException e) {
@@ -55,13 +48,5 @@ public class ConnectSellersDB extends ConnectDB {
             try{if(res!= null) res.close();} catch (SQLException e) {e.printStackTrace();}
         }
         return null;
-    }
-
-    public void insert(Seller seller) {
-        sql = "insert into Seller (name, surname, birthday, login, password) \n" +
-                "        values ('"+ seller.getName() +"', '"+ seller.getSurname()+ "', '" +
-                seller.getBirthday() + "', '"+ seller.getLogin() +"', '" + seller.getPassword() + "')";
-
-        changesTable(sql);
     }
 }

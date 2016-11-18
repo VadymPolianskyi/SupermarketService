@@ -77,6 +77,8 @@ public class CashRegisterController {
 
         dataTable.setItems(goodData);
 
+
+
         bindToTime();
     }
 

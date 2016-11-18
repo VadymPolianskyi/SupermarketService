@@ -10,6 +10,7 @@ public class Seller {
     private String birthday;
     private String login;
     private String password;
+    private Double salesToMonth;
 
     public String getPassword() {
         return password;
@@ -57,5 +58,11 @@ public class Seller {
 
     public void setId(int id) {
         this.id = id;
+//        this.salesToMonth = salesToMonth(id);
     }
+
+//    private double salesToMonth(int id) {
+//        double sales;
+//        return sales;
+//    }
 }

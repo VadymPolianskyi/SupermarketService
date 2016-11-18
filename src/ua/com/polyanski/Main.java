@@ -5,6 +5,12 @@ import ua.com.polyanski.DBService.ConnectGoodsDB;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Main {
 
 
@@ -19,5 +25,7 @@ public class Main {
         System.out.println("id " + good.getId());
         System.out.println("model " + good.getModel());
         System.out.println("type " + good.getType());
+
+
     }
 }

@@ -7,9 +7,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 import ua.com.polyanski.DBService.ConnectGoodsDB;
+import ua.com.polyanski.DBService.ConnectSellersDB;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 import ua.com.polyanski.userService.data.Seller;
+import ua.com.polyanski.userService.data.Sellers;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by vadym on 13.11.16.
@@ -21,7 +27,9 @@ public class AddGoodsAndSellersController {
     ConnectGoodsDB connectGoodsDB;
     ConnectAnotherDB connectAnotherDB;
     Good selectGood = null;
-    int maxID = 0;
+    Seller selectSeller = null;
+    int maxIDGood = 0;
+    int maxIDSeller = 0;
 
     @FXML
     TextField barCodeField, numberField, priceField, saleField, expirationDateField;
@@ -76,6 +84,13 @@ public class AddGoodsAndSellersController {
         dataTableViev.setItems(goodData);
 
         initDataSellers();
+        nameSellerColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("name"));
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("surname"));
+        birthColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("birthday"));
+        loginColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("login"));
+        salesToMonth.setCellValueFactory(new PropertyValueFactory<Seller, String>("surname"));
+
+        thirdDataTable.setItems(sellerData);
 
         dataTableViev.getSelectionModel().selectedItemProperty().addListener(
                 ((observable, oldValue, newValue) -> showFirstSelectedData(newValue)));
@@ -84,9 +99,25 @@ public class AddGoodsAndSellersController {
     }
 
     private void initDataSellers() {
+        ConnectSellersDB connectSellersDB = new ConnectSellersDB();
+        Sellers sellers = new Sellers();
+        sellers = connectSellersDB.select();
+
+        for (int i = 0; i < sellers.size(); i++ ) {
+            sellerData.add(sellers.get(i));
+            maxIDGood = sellers.get(i).getId();
+        }
     }
 
-    private void showSecondSelectedData(Seller newValue) {
+    private void showSecondSelectedData(Seller selectSeller) {
+        if (selectSeller == null) {
+        } else {
+            this.selectSeller = selectSeller;
+            nameSecondField.setText(selectSeller.getName());
+            surnameSecondField.setText(selectSeller.getSurname());
+            birthSecondField.setText(selectSeller.getBirthday());
+            loginSecondField.setText((selectSeller.getLogin()));
+        }
 
     }
 
@@ -114,9 +145,8 @@ public class AddGoodsAndSellersController {
 
         for (int i = 0; i < goods.size(); i++ ) {
             goodData.add(goods.get(i));
-            maxID = goods.get(i).getId();
+            maxIDGood = goods.get(i).getId();
         }
-        System.out.println(goods.size());
     }
 
     private void addToComboBoxData() {
@@ -136,7 +166,7 @@ public class AddGoodsAndSellersController {
             connectGoodsDB = new ConnectGoodsDB();
             try {
                 connectGoodsDB.update(new Good(barCodeField.getText(), selectGood.getId(), typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
-                        modelComboBox.getValue().toString(), expirationDateField.getText(), Double.parseDouble(priceField.getText()), Integer.parseInt(numberField.getText()),
+                        modelComboBox.getValue().toString(), correctData(expirationDateField.getText()), Double.parseDouble(priceField.getText()), Integer.parseInt(numberField.getText()),
                         Integer.parseInt(saleField.getText()), 0));
                 initialize();
             } catch (NumberFormatException e) {
@@ -152,8 +182,8 @@ public class AddGoodsAndSellersController {
         try {
 
                 ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
-                Good good = new Good(barCodeField.getText(), maxID + 1, typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
-                        modelComboBox.getValue().toString(), expirationDateField.getText(), Double.parseDouble(priceField.getText()),
+                Good good = new Good(barCodeField.getText(), maxIDGood + 1, typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
+                        modelComboBox.getValue().toString(), correctData(expirationDateField.getText()), Double.parseDouble(priceField.getText()),
                         Integer.parseInt(numberField.getText()), Integer.parseInt(saleField.getText()), 0);
                 connectGoodsDB.insert(good);
                 goodData.add(good);
@@ -161,6 +191,19 @@ public class AddGoodsAndSellersController {
             System.out.println("NullPointerException..");
         }
 
+    }
+    public void addSellers() {
+        ConnectSellersDB connectSellersDB = new ConnectSellersDB();
+        Seller seller = new Seller();
+        seller.setId(maxIDSeller + 1);
+        seller.setName(nameSecondField.getText());
+        seller.setSurname(surnameSecondField.getText());
+        seller.setBirthday(correctData(birthSecondField.getText()));
+        seller.setLogin(loginSecondField.getText());
+        seller.setPassword(newPasswordField.getText());
+        connectSellersDB.insert(seller);
+
+        sellerData.add(seller);
     }
 
     public void closeGoods() {
@@ -171,15 +214,24 @@ public class AddGoodsAndSellersController {
         System.out.println("change");
     }
 
-    public void addSellers() {
-        System.out.println("add");
-    }
-
     public void closeSellers(){
         closeGoods();
     }
 
     public void changePassword() {
         System.out.println("changePassword");
+    }
+
+    public String correctData(String dateInString) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date date = formatter.parse(dateInString);
+            return formatter.format(date);
+
+        } catch (ParseException e) {
+            System.out.println("problem with date");
+        }
+        return null;
     }
 }
