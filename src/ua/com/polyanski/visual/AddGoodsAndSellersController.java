@@ -25,6 +25,7 @@ public class AddGoodsAndSellersController {
     private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
     MainApp mainApp;
     ConnectGoodsDB connectGoodsDB;
+    ConnectSellersDB connectSellersDB;
     ConnectAnotherDB connectAnotherDB;
     Good selectGood = null;
     Seller selectSeller = null;
@@ -70,6 +71,7 @@ public class AddGoodsAndSellersController {
     @FXML
     public void initialize() {
         goodData.clear();
+        sellerData.clear();
         addToComboBoxData();
 
         initDataGoods();
@@ -88,7 +90,7 @@ public class AddGoodsAndSellersController {
         surnameColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("surname"));
         birthColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("birthday"));
         loginColumn.setCellValueFactory(new PropertyValueFactory<Seller, String>("login"));
-        salesToMonth.setCellValueFactory(new PropertyValueFactory<Seller, String>("surname"));
+        salesToMonth.setCellValueFactory(new PropertyValueFactory<Seller, String>("sales"));
 
         thirdDataTable.setItems(sellerData);
 
@@ -100,12 +102,11 @@ public class AddGoodsAndSellersController {
 
     private void initDataSellers() {
         ConnectSellersDB connectSellersDB = new ConnectSellersDB();
-        Sellers sellers = new Sellers();
-        sellers = connectSellersDB.select();
+        Sellers sellers = connectSellersDB.select();
 
         for (int i = 0; i < sellers.size(); i++ ) {
             sellerData.add(sellers.get(i));
-            maxIDGood = sellers.get(i).getId();
+            maxIDSeller = sellers.get(i).getId();
         }
     }
 
@@ -173,10 +174,57 @@ public class AddGoodsAndSellersController {
                 System.out.println("NumberFormatException...");
             }
         }
-        else{
+    }
 
+    public void deleteGood() {
+        if (selectGood != null) {
+            connectGoodsDB = new ConnectGoodsDB();
+            try {
+                connectGoodsDB.delete(selectGood.getId());
+                initialize();
+            } catch (NumberFormatException e) {
+                System.out.println("NumberFormatException...");
+            }
         }
     }
+    public void changeSellers() {
+        if (selectSeller != null) {
+            connectSellersDB = new ConnectSellersDB();
+            try {
+                connectSellersDB.update(new Seller(selectSeller.getId(), nameSecondField.getText(),
+                        surnameSecondField.getText(), correctData(birthSecondField.getText()),
+                            loginSecondField.getText(), selectSeller.getPassword(), 0));
+                initialize();
+            } catch (NumberFormatException e) {
+                System.out.println("NumberFormatException...");
+            }
+        }
+    }
+
+    public void deleteSeller() {
+        if (selectSeller != null) {
+            connectSellersDB = new ConnectSellersDB();
+            try {
+                connectSellersDB.delete(selectSeller.getId());
+                initialize();
+            } catch (NumberFormatException e) {
+                System.out.println("NumberFormatException...");
+            }
+        }    }
+
+    public void changePassword() {
+        if (selectSeller != null|| oldPasswordField.getText() != null || oldPasswordField.getText() == newPasswordField.getText() ||
+                newPasswordField.getText() == newPasswordAgainField.getText()) {
+
+            connectSellersDB = new ConnectSellersDB();
+            connectSellersDB.update(new Seller(selectSeller.getId(), selectSeller.getName(),
+                    selectSeller.getSurname(), selectSeller.getBirthday(), selectSeller.getLogin(),
+                        newPasswordField.getText(), 0));
+        }
+
+    }
+
+
 
     public void addGoods() {
         try {
@@ -193,34 +241,28 @@ public class AddGoodsAndSellersController {
 
     }
     public void addSellers() {
-        ConnectSellersDB connectSellersDB = new ConnectSellersDB();
-        Seller seller = new Seller();
-        seller.setId(maxIDSeller + 1);
-        seller.setName(nameSecondField.getText());
-        seller.setSurname(surnameSecondField.getText());
-        seller.setBirthday(correctData(birthSecondField.getText()));
-        seller.setLogin(loginSecondField.getText());
-        seller.setPassword(newPasswordField.getText());
-        connectSellersDB.insert(seller);
+        try {
+            ConnectSellersDB connectSellersDB = new ConnectSellersDB();
+            Seller seller = new Seller(maxIDSeller + 1, nameSecondField.getText(), surnameSecondField.getText(),
+                    correctData(birthSecondField.getText()), loginSecondField.getText(),
+                        newPasswordField.getText(), 0);
+            connectSellersDB.insert(seller);
 
-        sellerData.add(seller);
+            sellerData.add(seller);
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException..");
+        }
     }
 
     public void closeGoods() {
         System.out.println("close");
     }
 
-    public void changeSellers() {
-        System.out.println("change");
-    }
 
     public void closeSellers(){
         closeGoods();
     }
 
-    public void changePassword() {
-        System.out.println("changePassword");
-    }
 
     public String correctData(String dateInString) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

@@ -14,17 +14,22 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="TableSales" fx:id="tableSalesItem" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Exit" fx:id="exitItem" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
+        <Menu mnemonicParsing="false" text="Language">
           <items>
-            <MenuItem mnemonicParsing="false" text="Delete" />
+            <MenuItem mnemonicParsing="false" text="Ukraine" fx:id="ukraineItem" />
+            <MenuItem mnemonicParsing="false" text="Russian" fx:id="RussianItem" />
+            <MenuItem mnemonicParsing="false" text="English" fx:id="EnglishItem" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem mnemonicParsing="false" text="About" />
+            <MenuItem mnemonicParsing="false" text="About" fx:id="aboutItem" />
+            <MenuItem mnemonicParsing="false" text="Help" fx:id="helpItem" />
           </items>
         </Menu>
       </menus>
@@ -122,6 +127,7 @@
                             <Button fx:id="addButton" layoutX="389.0" layoutY="14.0" mnemonicParsing="false" onAction="#addGoods" prefHeight="25.0" prefWidth="68.0" text="Add" />
                             <Button fx:id="closeButton" layoutX="476.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeGoods" prefHeight="25.0" prefWidth="68.0" text="Close" />
                             <Button fx:id="changeButton" layoutX="301.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeGoods" prefHeight="25.0" prefWidth="68.0" text="Change" />
+                            <Button id="changeButton" fx:id="deleteButton" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteGood" prefHeight="25.0" prefWidth="68.0" text="Delete" />
                           </children>
                         </Pane>
                       </children>
@@ -178,6 +184,7 @@
                     <Button fx:id="chooseSecondButton" layoutX="515.0" layoutY="19.0" mnemonicParsing="false" onAction="#closeSellers" prefHeight="25.0" prefWidth="68.0" text="Close" />
                     <Button fx:id="addSecondButton" layoutX="426.0" layoutY="19.0" mnemonicParsing="false" onAction="#addSellers" prefHeight="25.0" prefWidth="68.0" text="Add" />
                     <Button fx:id="changeSecondButton" layoutX="336.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeSellers" prefHeight="25.0" prefWidth="68.0" text="Change" />
+                    <Button id="changeButton" fx:id="deleteSecondButton" layoutX="245.0" layoutY="19.0" mnemonicParsing="false" onAction="#deleteSeller" prefHeight="25.0" prefWidth="68.0" text="Delete" />
                   </children>
                 </AnchorPane>
               </children>

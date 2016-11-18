@@ -23,21 +23,16 @@ public class ConnectSellersDB extends ConnectDB {
             conn = DriverManager.getConnection(URL);
 
             sql = "select\n" +
-                    "id, name, surname, birthday,login,password\n" +
-                    "from Seller";
+                    "id, nameSeller, surname, birthday,login,password\n" +
+                    "from Seller WHERE flag = 0";
 
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);
 
             while (res.next()) {
-                Seller seller = new Seller();
-                seller.setId(res.getInt("id"));
-                seller.setName(res.getString("name"));
-                seller.setSurname(res.getString("surname"));
-                seller.setBirthday(res.getString("birthday"));
-                seller.setLogin(res.getString("login"));
-                seller.setPassword(res.getString("password"));
+                Seller seller = new Seller(res.getInt("id"), res.getString("nameSeller"), res.getString("surname"),
+                        res.getString("birthday"), res.getString("login"), res.getString("password"), 0);
                 sellers.add(seller);
             }
             return sellers;
@@ -58,9 +53,27 @@ public class ConnectSellersDB extends ConnectDB {
     }
 
     public void insert(Seller seller) {
-        sql = "insert into Seller (name, surname, birthday, login, password) \n" +
+        sql = "insert into Seller (nameSeller, surname, birthday, login, password) \n" +
                 "        values ('"+ seller.getName() +"', '"+ seller.getSurname()+ "', '" +
                 seller.getBirthday() + "', '"+ seller.getLogin() +"', '" + seller.getPassword() + "')";
+
+        changesTable(sql);
+    }
+
+    public void update(Seller seller) {
+        sql = "update Seller\n" +
+                "set nameSeller = '"+ seller.getName() + "',\n" +
+                "surname = '"+ seller.getSurname() +"',\n" +
+                "birthday = '"+ seller.getBirthday() +"',\n" +
+                "login = '" + seller.getLogin() +"',\n" +
+                "password = '" + seller.getPassword() + "' where id = "+ seller.getId();
+
+        changesTable(sql);
+    }
+
+    public void delete(int id) {
+        sql = "update Seller\n" +
+                "set flag = 1 where id = " + id;
 
         changesTable(sql);
     }

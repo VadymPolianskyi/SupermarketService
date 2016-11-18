@@ -2,6 +2,7 @@ package ua.com.polyanski;
 
 
 import ua.com.polyanski.DBService.ConnectGoodsDB;
+import ua.com.polyanski.DBService.ConnectSalesDB;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 
@@ -26,6 +27,7 @@ public class Main {
         System.out.println("model " + good.getModel());
         System.out.println("type " + good.getType());
 
-
+        ConnectSalesDB connectSalesDB = new ConnectSalesDB();
+        connectSalesDB.select(2);
     }
 }
