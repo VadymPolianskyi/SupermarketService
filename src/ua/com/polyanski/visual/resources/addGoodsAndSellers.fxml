@@ -15,6 +15,7 @@
         <Menu mnemonicParsing="false" text="File">
           <items>
             <MenuItem mnemonicParsing="false" text="TableSales" fx:id="tableSalesItem" />
+            <MenuItem mnemonicParsing="false" text="Add type/name/model" fx:id="addTypeNameModelItem" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Exit" fx:id="exitItem" />
           </items>

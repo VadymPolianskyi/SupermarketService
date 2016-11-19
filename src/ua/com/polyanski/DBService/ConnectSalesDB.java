@@ -16,8 +16,9 @@ public class ConnectSalesDB extends ConnectDB {
     ResultSet res = null;
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
+    private String oneSeller = "where seller_id";
 
-    public Sales select(int id) {
+    public Sales select() {
        Sales sales = new Sales();
 
         try {
@@ -25,6 +26,7 @@ public class ConnectSalesDB extends ConnectDB {
             conn = DriverManager.getConnection(URL);
 
             sql = "select\n" +
+                    "sale.id,\n" +
                     "seller.nameSeller,\n" +
                     "seller.surname,\n" +
                     "name.name,\n" +
@@ -35,14 +37,14 @@ public class ConnectSalesDB extends ConnectDB {
                     "inner join Good good on sale.good_id = good.id\n" +
                     "inner join spr_Name name on good.name = name.id\n" +
                     "inner join Seller seller on sale.seller_id = seller.id\n" +
-                    "where seller_id = " + id;
+                    oneSeller;
 
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);
 
             while (res.next()) {
-                sales.add(new Sale(res.getString("nameSeller"), res.getString("surname"),
+                sales.add(new Sale(res.getInt("id"), res.getString("nameSeller"), res.getString("surname"),
                         res.getString("name"), res.getDouble("price"), res.getString("date_sale"),
                             res.getInt("count_goods")));
             }
@@ -63,9 +65,14 @@ public class ConnectSalesDB extends ConnectDB {
         return null;
     }
 
+    public void setId(int id) {
+        oneSeller += " = " + id;
+    }
+
     //calculate ~ sales/month
     public double salToMon(int id) {
-        Sales sales = select(id);
+        setId(id);
+        Sales sales = select();
         int count = 0;
         double allResults = 0;
         double monthResult = 0;

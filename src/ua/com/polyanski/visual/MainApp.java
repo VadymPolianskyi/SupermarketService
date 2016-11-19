@@ -11,7 +11,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../visual/resources/addGoodsAndSellers.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../visual/resources/addTypeNameModel.fxml"));
         primaryStage.setTitle("ADMINISTRATOR");
         primaryStage.setResizable(false);
 //        primaryStage.getIcons().add(new Image("resources/title.png"));

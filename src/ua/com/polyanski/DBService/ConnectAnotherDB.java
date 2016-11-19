@@ -14,7 +14,7 @@ public class ConnectAnotherDB extends ConnectDB{
     private String sql;
     private String tableName;
     private String column;
-    private String toPassword = "";
+    String toPassword = "";
 
     public ConnectAnotherDB(String tableName, String column) {
         this.tableName = tableName;
@@ -27,11 +27,13 @@ public class ConnectAnotherDB extends ConnectDB{
         toPassword = "where login = " + login;
     }
 
+
     public ArrayList select() {
         ArrayList<String> data = new ArrayList<String>();
         try {
             Class.forName("org.sqlite.JDBC").newInstance();
             conn = DriverManager.getConnection(URL);
+
 
             sql = "    select " + column +
                     "    from " + tableName + toPassword;
@@ -61,31 +63,25 @@ public class ConnectAnotherDB extends ConnectDB{
         return null;
     }
 
-//    public void insert(String value) {
-//        String sql =  "insert into " + tableName + "("+column+")" +
-//                "value(" + value +")";
-//        changesTable(sql);
-//    }
+
+
+    public void update(String newName, String oldName) {
+        sql = "update "+tableName+"\n" +
+                "set "+column+" = '"+newName+"' where "+column+" = '"+oldName+"'";
+        changesTable(sql);
+    }
+
+    public void insert(String name) {
+        sql = "insert into " + tableName + "(" + column + ")" +
+                "values ('" + name + "')";
+        changesTable(sql);
+    }
 
     public void updatePassword(String password, String login) {
-        String sql =  "update Seller \n" +
-                "set password = " + password + "where  login = " + login;
-        changesTable(sql);
+        sql = "update Seller " +
+                "set password = " + password +
+                "where login = " + login;
     }
 
-    public void insertSaller(String name, String surname, String dataBirthday, String login, String password) {
-        String sql =  "insert into Seller (name, surname, birthday, login, password)" +
-                "value(" + name +", " + surname + ", " + dataBirthday + ", " + login +", " + password +")";
-        changesTable(sql);
-    }
 
-    public void insertSale(String seller, String good, String date) {
-
-        String sql = "insert into Sale (saller_id, good_id, date_sale, d)" +
-                "select id, (select id from Seller where name = '" + seller + "'),"+
-                "(select id from Good where name = '" + good +"')," + date +
-                "from Seller where name = '" + seller + "'";
-
-        changesTable(sql);
-    }
 }

@@ -4,6 +4,7 @@ package ua.com.polyanski.userService.data;
  * Created by vadym on 18.11.2016.
  */
 public class Sale {
+    private int id;
     private String sellerName;
     private String sellerSurname;
     private String good;
@@ -11,7 +12,8 @@ public class Sale {
     private double price;
     private int count;
 
-    public Sale(String sellerName, String sellerSurname, String good, double price, String date, int count) {
+    public Sale(int id, String sellerName, String sellerSurname, String good, double price, String date, int count) {
+        this.id = id;
         this.sellerName = sellerName;
         this.sellerSurname = sellerSurname;
         this.good = good;
