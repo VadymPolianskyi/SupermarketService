@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.addTypeNameModelController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.addTypeNameModelController">
   <children>
     <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -20,7 +20,7 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" fx:id="x3" />
                   </columnResizePolicy>
                   <columns>
-                    <TableColumn prefWidth="75.0" text="Type" fx:id="typeColumn" />
+                    <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
                   </columns>
                   <VBox.margin>
                     <Insets left="5.0" right="5.0" top="5.0" fx:id="x1" />
@@ -42,7 +42,7 @@
               <children>
                 <TableView fx:id="nameTable" columnResizePolicy="$x3" prefHeight="271.0" prefWidth="190.0" VBox.margin="$x1">
                   <columns>
-                    <TableColumn prefWidth="75.0" text="Name" fx:id="nameColumn" />
+                    <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
                   </columns>
                 </TableView>
                 <AnchorPane minHeight="69.0" prefHeight="69.0" prefWidth="200.0">
@@ -58,12 +58,12 @@
               <children>
                 <TableView fx:id="modelTable" columnResizePolicy="$x3" prefHeight="271.0" prefWidth="190.0" VBox.margin="$x1">
                   <columns>
-                    <TableColumn prefWidth="75.0" text="Model" fx:id="modelColumn" />
+                    <TableColumn fx:id="modelColumn" prefWidth="75.0" text="Model" />
                   </columns>
                 </TableView>
                 <AnchorPane minHeight="69.0" prefHeight="69.0" prefWidth="200.0">
                   <children>
-                    <TextField fx:id="modelField" prefWidth="200.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                    <TextField fx:id="modelField" layoutX="10.0" layoutY="14.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                     <Button fx:id="addModelButton" layoutX="134.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelAddClick" prefWidth="56.0" text="Add" />
                     <Button fx:id="changeModelButton" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelChangeClick" text="Change" />
                   </children>
@@ -74,7 +74,7 @@
         </HBox>
         <AnchorPane minHeight="50.0" prefHeight="50.0" prefWidth="600.0">
           <children>
-            <Button fx:id="cancelButton" layoutY="25.0" mnemonicParsing="false" onAction="#cancelClick" prefHeight="22.0" text="Cancel" AnchorPane.rightAnchor="10.0" />
+            <Button fx:id="cancelButton" layoutX="534.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelClick" prefHeight="22.0" text="Cancel" AnchorPane.rightAnchor="10.0" />
           </children>
         </AnchorPane>
       </children>
