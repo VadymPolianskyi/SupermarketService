@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@inform.png" />
+                  <Image url="@../../../../../pictures/inform.png" />
                </image>
             </ImageView>
             <Label layoutX="141.0" layoutY="30.0" prefHeight="15.0" prefWidth="245.0" text="Information message:">

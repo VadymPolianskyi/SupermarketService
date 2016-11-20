@@ -16,11 +16,13 @@ import java.util.ArrayList;
 /**
  * Created by vadym on 19.11.2016.
  */
-public class addTypeNameModelController {
+public class AddTypeNameModelController {
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
     private ObservableList<Name> nameData = FXCollections.observableArrayList();
     private ObservableList<Model> modelData = FXCollections.observableArrayList();
     ConnectAnotherDB connectAnotherDB;
+
+    MainApp mainApp;
 
     Type selectType;
     Name selectName;
@@ -33,7 +35,7 @@ public class addTypeNameModelController {
     @FXML
     TextField typeField;
     @FXML
-    Button addTypeButton;
+    Button cancelButton;
 
     @FXML
     TableView<Name> nameTable;
@@ -52,6 +54,10 @@ public class addTypeNameModelController {
     TextField modelField;
     @FXML
     Button addModelButton;
+
+    public void setMain(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     @FXML
     public void initialize() {
@@ -183,6 +189,6 @@ public class addTypeNameModelController {
     }
 
     public void cancelClick() {
-
+        cancelButton.getScene().getWindow().hide();
     }
 }

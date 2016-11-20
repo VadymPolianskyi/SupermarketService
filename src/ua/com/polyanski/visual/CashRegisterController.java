@@ -8,10 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import ua.com.polyanski.DBService.ConnectGoodsDB;
@@ -20,9 +17,16 @@ import ua.com.polyanski.userService.StringUtilities;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 
+import javax.swing.plaf.basic.BasicButtonUI;
 import java.util.Calendar;
 
 public class CashRegisterController {
+
+    MainApp mainApp;
+
+    public void setMain(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     Goods goods = new Goods();
 
@@ -62,6 +66,9 @@ public class CashRegisterController {
 
     @FXML
     Label dataTypeLabel, dataNameLabel, dataModelLabel, dataSaleLabel;
+
+    @FXML
+    Button buyButton;
 
 
     @FXML
@@ -167,5 +174,22 @@ public class CashRegisterController {
         );
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+    }
+
+    public void languageUkraineItem() {}
+    public void languageRussianItem() {}
+    public void languageEnglishItem() {}
+
+    public void aboutItem() {
+        mainApp.showWindow("about.fxml", "About");
+    }
+
+    public void helpItem() {
+        mainApp.showWindow("reference.fxml", "Help");
+    }
+
+    public void exitItem() {
+        mainApp.informationDilogYesNo(buyButton, "Do you want to exit?");
+        mainApp.showWindow("login.fxml", "Sign in");
     }
 }

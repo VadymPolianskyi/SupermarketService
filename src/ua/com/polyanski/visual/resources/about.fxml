@@ -6,14 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="162.0" fitWidth="153.0" layoutX="22.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@about2.png" />
+                  <Image url="/pictures/about2.png" />
                </image>
             </ImageView>
             <Label layoutX="208.0" layoutY="62.0" prefHeight="95.0" prefWidth="372.0" text="Supermarket service" textFill="#66b2a0">
@@ -32,7 +31,7 @@
          <children>
             <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="517.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@about.png" />
+                  <Image url="/pictures/about.png" />
                </image>
             </ImageView>
             <Label layoutX="300.0" layoutY="27.0" text="© 2016 Vadym Polyanski " />

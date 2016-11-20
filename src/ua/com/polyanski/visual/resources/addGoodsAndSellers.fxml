@@ -8,29 +8,29 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AddGoodsAndSellersController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.AddGoodsAndSellersController">
   <children>
     <MenuBar style="fx-background: white">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="TableSales" fx:id="tableSalesItem" />
-            <MenuItem mnemonicParsing="false" text="Add type/name/model" fx:id="addTypeNameModelItem" />
+            <MenuItem fx:id="tableSalesItem" mnemonicParsing="false" onAction="#tableSalesItem" text="TableSales" />
+            <MenuItem fx:id="addTypeNameModelItem" mnemonicParsing="false" onAction="#addItem" text="Add type/name/model" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Exit" fx:id="exitItem" />
+            <MenuItem fx:id="exitItem" mnemonicParsing="false" onAction="#exitItem" text="Exit" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Language">
           <items>
-            <MenuItem mnemonicParsing="false" text="Ukraine" fx:id="ukraineItem" />
-            <MenuItem mnemonicParsing="false" text="Russian" fx:id="RussianItem" />
-            <MenuItem mnemonicParsing="false" text="English" fx:id="EnglishItem" />
+            <MenuItem fx:id="ukraineItem" mnemonicParsing="false" text="Ukraine" />
+            <MenuItem fx:id="RussianItem" mnemonicParsing="false" text="Russian" />
+            <MenuItem fx:id="EnglishItem" mnemonicParsing="false" text="English" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem mnemonicParsing="false" text="About" fx:id="aboutItem" />
-            <MenuItem mnemonicParsing="false" text="Help" fx:id="helpItem" />
+            <MenuItem fx:id="aboutItem" mnemonicParsing="false" onAction="#aboutItem" text="About" />
+            <MenuItem fx:id="helpItem" mnemonicParsing="false" onAction="#helpItem" text="Help" />
           </items>
         </Menu>
       </menus>
@@ -110,13 +110,13 @@
                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" fx:id="x4" />
                           </columnResizePolicy>
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Bar code" fx:id="barCodeColum" />
-                            <TableColumn prefWidth="75.0" text="Type" fx:id="typeColum" />
-                            <TableColumn prefWidth="75.0" text="Name" fx:id="nameColum" />
-                            <TableColumn prefWidth="75.0" text="Model" fx:id="modelColum" />
-                            <TableColumn prefWidth="75.0" text="Price" fx:id="priceColum" />
-                            <TableColumn prefWidth="75.0" text="Number" fx:id="numberColum" />
-                            <TableColumn prefWidth="75.0" text="Sale" fx:id="saleColum" />
+                            <TableColumn fx:id="barCodeColum" prefWidth="75.0" text="Bar code" />
+                            <TableColumn fx:id="typeColum" prefWidth="75.0" text="Type" />
+                            <TableColumn fx:id="nameColum" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="modelColum" prefWidth="75.0" text="Model" />
+                            <TableColumn fx:id="priceColum" prefWidth="75.0" text="Price" />
+                            <TableColumn fx:id="numberColum" prefWidth="75.0" text="Number" />
+                            <TableColumn fx:id="saleColum" prefWidth="75.0" text="Sale" />
                           </columns>
                         </TableView>
                       </children>
@@ -171,11 +171,11 @@
                   <children>
                     <TableView fx:id="thirdDataTable" columnResizePolicy="$x4" prefHeight="107.0" prefWidth="560.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                       <columns>
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="94.0" text="Name" fx:id="nameSellerColumn" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Surname" fx:id="surnameColumn" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="123.0" text="Date of birth" fx:id="birthColumn" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="91.0" text="Login" fx:id="loginColumn" />
-                        <TableColumn prefWidth="75.0" text="Sales/month" fx:id="salesToMonth" />
+                        <TableColumn fx:id="nameSellerColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="94.0" text="Name" />
+                        <TableColumn fx:id="surnameColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Surname" />
+                        <TableColumn fx:id="birthColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="123.0" text="Date of birth" />
+                        <TableColumn fx:id="loginColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="91.0" text="Login" />
+                        <TableColumn fx:id="salesToMonth" prefWidth="75.0" text="Sales/month" />
                       </columns>
                     </TableView>
                   </children>

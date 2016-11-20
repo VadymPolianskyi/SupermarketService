@@ -3,6 +3,7 @@ package ua.com.polyanski.visual;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,6 +32,15 @@ public class TableSalesController {
     TableColumn<Sale, Integer> numberColumn;
 
     @FXML
+    Button cancelButton;
+
+    MainApp mainApp;
+
+    public void setMain(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
+    @FXML
     public void initialize() {
     dataInit();
         sellersNameColumn.setCellValueFactory(new PropertyValueFactory<Sale,String>("sellerName"));
@@ -53,6 +63,6 @@ public class TableSalesController {
     }
 
     public void cancelClick() {
-        System.out.println("Cancel");
+        cancelButton.getScene().getWindow().hide();
     }
 }

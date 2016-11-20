@@ -21,6 +21,7 @@ import java.util.Date;
  * Created by vadym on 13.11.16.
  */
 public class AddGoodsAndSellersController {
+
     private ObservableList<Good> goodData = FXCollections.observableArrayList();
     private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
     MainApp mainApp;
@@ -63,6 +64,9 @@ public class AddGoodsAndSellersController {
 
     @FXML
     TableColumn<Seller, String> nameSellerColumn, surnameColumn, birthColumn, loginColumn, salesToMonth;
+
+    @FXML
+    Button closeButton;
 
     public void setMain(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -255,7 +259,8 @@ public class AddGoodsAndSellersController {
     }
 
     public void closeGoods() {
-        System.out.println("close");
+        closeButton.getScene().getWindow().hide();
+        //login open
     }
 
 
@@ -275,5 +280,31 @@ public class AddGoodsAndSellersController {
             System.out.println("problem with date");
         }
         return null;
+    }
+
+    public void tableSalesItem() {
+        mainApp.showWindow("tableSales.fxml", "Table sales");
+    }
+
+    public void addItem() {
+        mainApp.showWindow("addTypeNameModel.fxml", "Adding small data");
+    }
+
+    public void exitItem() {
+        closeGoods();
+    }
+//---------------------------------------------
+    public void languageUkraineItem() {}
+    public void languageRussianItem() {}
+    public void languageEnglishItem() {}
+//---------------------------------------------
+
+
+    public void aboutItem() {
+        mainApp.showWindow("about.fxml", "About");
+    }
+
+    public void helpItem() {
+        mainApp.showWindow("reference.fxml", "Help");
     }
 }

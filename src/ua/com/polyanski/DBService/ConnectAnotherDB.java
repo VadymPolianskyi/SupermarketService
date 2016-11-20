@@ -24,7 +24,7 @@ public class ConnectAnotherDB extends ConnectDB{
     public ConnectAnotherDB(String tableName, String column, String login) {
         this.tableName = tableName;
         this.column = column;
-        toPassword = "where login = " + login;
+        toPassword = "where login = '" + login + "'";
     }
 
 
@@ -36,25 +36,27 @@ public class ConnectAnotherDB extends ConnectDB{
 
 
             sql = "    select " + column +
-                    "    from " + tableName + toPassword;
+                    "    from " + tableName +" "+ toPassword;
+            System.out.println(sql);
 
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);
 
             while(res.next()) {
+                System.out.println("Result: " +res.getString(column));
                 data.add(res.getString(column));
             }
             return data;
 
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            System.out.println("InstantiationException");
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            System.out.println("IllegalAccessException");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("SQLExeption");
         } finally {
             try{if(conn!=null)conn.close();} catch (SQLException e) {e.printStackTrace();}
 //            try{if(stmt!=null)stmt.close();} catch (SQLException e) {e.printStackTrace();}
