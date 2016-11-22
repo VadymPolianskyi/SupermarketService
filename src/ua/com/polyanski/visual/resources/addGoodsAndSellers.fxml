@@ -14,7 +14,7 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem fx:id="tableSalesItem" mnemonicParsing="false" onAction="#tableSalesItem" text="TableSales" />
+            <MenuItem fx:id="tableSalesItem" mnemonicParsing="false" onAction="#tableSalesItem" text="Table sales" />
             <MenuItem fx:id="addTypeNameModelItem" mnemonicParsing="false" onAction="#addItem" text="Add type/name/model" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem fx:id="exitItem" mnemonicParsing="false" onAction="#exitItem" text="Exit" />

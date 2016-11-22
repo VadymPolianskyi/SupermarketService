@@ -37,14 +37,12 @@ public class ConnectAnotherDB extends ConnectDB{
 
             sql = "    select " + column +
                     "    from " + tableName +" "+ toPassword;
-            System.out.println(sql);
 
             stmt = conn.createStatement();
 
             res = stmt.executeQuery(sql);
 
             while(res.next()) {
-                System.out.println("Result: " +res.getString(column));
                 data.add(res.getString(column));
             }
             return data;

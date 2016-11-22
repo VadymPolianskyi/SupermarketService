@@ -14,6 +14,11 @@ public class ConnectSellersDB extends ConnectDB {
     ResultSet res = null;
     private final String URL = "jdbc:sqlite:Supermarket.db";
     private String sql;
+    String toSearchLogin = "";
+
+    public void setToSearchLogin(String toSearchLogin) {
+        this.toSearchLogin = "and login = '" +toSearchLogin + "'";
+    }
 
     public Sellers select() {
         Sellers sellers = new Sellers();
@@ -24,7 +29,7 @@ public class ConnectSellersDB extends ConnectDB {
 
             sql = "select\n" +
                     "id, nameSeller, surname, birthday,login,password\n" +
-                    "from Seller WHERE flag = 0";
+                    "from Seller WHERE flag = 0 " + toSearchLogin;
 
             stmt = conn.createStatement();
 

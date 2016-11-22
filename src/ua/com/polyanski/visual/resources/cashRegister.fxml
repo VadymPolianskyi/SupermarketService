@@ -108,6 +108,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
+            <Label fx:id="barCodeExceptionLabel" layoutX="105.0" layoutY="41.0" prefHeight="17.0" prefWidth="120.0" textFill="#fc0000" />
       </children>
     </AnchorPane>
     <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -116,7 +117,7 @@
         <Pane prefHeight="70.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
           <children>
             <Button fx:id="buyButton" layoutX="481.0" layoutY="23.0" mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="65.0" text="Buy" />
-            <Button fx:id="addButton" layoutX="190.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefWidth="65.0" text="Add" />
+            <Button fx:id="addButton" defaultButton="true" layoutX="190.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefWidth="65.0" text="Add" />
             <Button fx:id="deleteButton" layoutX="385.0" layoutY="23.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="65.0" text="Delete" />
             <Button fx:id="clearButton" layoutX="287.0" layoutY="23.0" mnemonicParsing="false" onAction="#clear" prefWidth="65.0" text="Clear" />
           </children>

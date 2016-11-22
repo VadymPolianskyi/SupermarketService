@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -27,10 +28,13 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="sigInButton" layoutX="322.0" layoutY="49.0" mnemonicParsing="false" onAction="#sigIn" prefHeight="25.0" prefWidth="64.0" text="Sig in" />
+            <Button fx:id="sigInButton" defaultButton="true" layoutX="322.0" layoutY="49.0" mnemonicParsing="false" onAction="#sigIn" prefHeight="25.0" prefWidth="64.0" text="Sig in" />
             <Button fx:id="sigUpButton" layoutX="237.0" layoutY="49.0" mnemonicParsing="false" onAction="#sigUp" prefHeight="25.0" prefWidth="64.0" text="Sig up" />
             <Hyperlink fx:id="forgotHyperlink" layoutX="14.0" layoutY="50.0" text="I forgot my password.." />
-            <Button fx:id="adminButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#sigInAdmin" text="Admin" />
+            <Button fx:id="adminButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#sigInAdmin" text="Admin">
+               <effect>
+                  <DropShadow color="#59d79e" height="20.0" radius="9.5" spread="0.08" width="20.0" />
+               </effect></Button>
          </children>
       </AnchorPane>
    </children>

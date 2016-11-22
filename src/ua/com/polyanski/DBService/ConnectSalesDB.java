@@ -108,4 +108,12 @@ public class ConnectSalesDB extends ConnectDB {
 
         return allResults / count;
     }
+
+    public void insert(Sale sale) {
+        sql = "insert into Sale (seller_id, good_id, date_sale, count_goods)\n" +
+                "            select id, (select id from Good where name = (select id from spr_Name where name = '"+sale.getGood()+"')), \n" +
+                "                   '"+sale.getDate()+"', "+sale.getCount()+" from Seller where nameSeller = '"+
+                                            sale.getSellerName()+"' and surname = '"+ sale.getSellerSurname() +"'";
+        changesTable(sql);
+    }
 }

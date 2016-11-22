@@ -56,6 +56,15 @@ public class ReferenceController {
 
     public void getAction(String value){
         switch (value){
+            case "Help ]" :
+                empty();
+                break;
+            case "Administrator ]" :
+                empty();
+                break;
+            case "Seller ]" :
+                empty();
+                break;
             case "Change language ]" :
                 language();
                 break;
@@ -92,6 +101,12 @@ public class ReferenceController {
         }
     }
 
+    public void empty() {
+        firstStep.setText("");
+        secondStep.setText("");
+        thirdStep.setText("");
+    }
+
     public void language() {
         firstStep.setText("Choose menu item 'Language'.");
         secondStep.setText("Change the language on the right.");
@@ -99,62 +114,63 @@ public class ReferenceController {
     }
 
     public void addData() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("You can select area by pressing  \nthe top tab(good/seller)");
+        secondStep.setText("Enter information in the all fields(good/seller).\n" +
+                "If you want to add seller enter password in \nfirst field 'New password'.");
+        thirdStep.setText("Click 'Add' when finished");
     }
 
     public void addSmallData() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Click 'File' and then 'Add type/name/model' \nin top menu.");
+        secondStep.setText("Enter type/name/model in the field.");
+        thirdStep.setText("Click the appropriate button.");
     }
 
     public void changeData() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Choose the item(good/seller) from the table.");
+        secondStep.setText("Change data in the fields(without password).");
+        thirdStep.setText("Click 'Change'.");
     }
 
     public void changePassword() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Choose the item(seller) from the table.");
+        secondStep.setText("Enter old password and new password(twice).");
+        thirdStep.setText("Click 'Change password'.");
     }
 
     public void viewSales() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Choose menu item 'File'.");
+        secondStep.setText("Then choose 'Table sales'.");
+        thirdStep.setText("If you want to close, just click 'Close'.");
     }
 
     public void saleGoods() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Enter the correct bar code in the appropriate field.");
+        secondStep.setText("Add the right products(click button 'add').");
+        thirdStep.setText("Click button 'Buy'.");
     }
 
     public void addGoods() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Enter the correct bar code in the appropriate \nfield.");
+        secondStep.setText("Enter number if you want more goods then one.");
+        thirdStep.setText("Click button 'Add'.");
     }
 
     public void deleteGoods() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Choose good in the table.");
+        secondStep.setText("Click button 'Delete'.");
+        thirdStep.setText("That is all.");
     }
 
     public void changeNumberGood() {
-        firstStep.setText("");
-        secondStep.setText("");
-        thirdStep.setText("");
+        firstStep.setText("Select good, delete it.");
+        secondStep.setText("Enter the right bar code. \nEnter the right number.");
+        thirdStep.setText("Click 'Add'.");
     }
 
     public void clearListGoods() {
-        firstStep.setText("");
-        secondStep.setText("");
+        firstStep.setText("Just click button 'Clear'.");
+        secondStep.setText("Your table is empty...");
         thirdStep.setText("");
     }
 

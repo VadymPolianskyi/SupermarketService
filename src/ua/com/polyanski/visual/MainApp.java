@@ -18,15 +18,27 @@ public class MainApp extends Application {
     private Stage anotherStage;
 
     private String message;
+    private String sellerName;
+    private String sellerSurname;
+    private double price;
 
     @FXML
     Button closeButton;
+
+    public void setNameSurnameSeller(String sellerName, String sellerSurname) {
+        this.sellerName = sellerName;
+        this.sellerSurname = sellerSurname;
+    }
 
     public void setCloseButton(Button closeButton) {
         this.closeButton = closeButton;
     }
     public void setMessage(String message) {
         this.message = message;
+    }
+    public void setPrice(double price) {
+        System.out.println("Main set: " + price);
+        this.price = price;
     }
 
     @Override
@@ -73,6 +85,7 @@ public class MainApp extends Application {
                     break;
                 case "cashRegister.fxml" :
                     CashRegisterController cashRegisterController = loader.getController();
+                    cashRegisterController.setNameSurnameSeller(sellerName, sellerSurname);
                     cashRegisterController.setMain(this);
                     break;
                 case "inform.fxml" :
@@ -95,6 +108,10 @@ public class MainApp extends Application {
                 case "tableSales.fxml" :
                     TableSalesController tableSalesController = loader.getController();
                     tableSalesController.setMain(this);
+                    break;
+                case "remainder.fxml" :
+                    RemainderController remainderController = loader.getController();
+                    remainderController.setPrice(price);
                     break;
 
             }

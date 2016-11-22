@@ -9,13 +9,11 @@ import java.sql.SQLException;
  */
 public class PasswordService {
 
-    ConnectAnotherDB sallerDB;
+    ConnectAnotherDB sellerDB;
 
     public boolean checkPassword(String login,String password) {
-            sallerDB = new ConnectAnotherDB("Seller", "password", login);
-        System.out.println(sallerDB.select().get(0));
-        System.out.println(password);
-            if (sallerDB.select().get(0).equals(password)) {
+            sellerDB = new ConnectAnotherDB("Seller", "password", login);
+            if (sellerDB.select().get(0).equals(password)) {
                 return true;
             } else {
                 return false;
@@ -23,8 +21,8 @@ public class PasswordService {
     }
 
     public void setNewPassword(String login, String password) {
-        sallerDB = new ConnectAnotherDB("Seller", "password", login);
-        sallerDB.updatePassword(password, login);
+        sellerDB = new ConnectAnotherDB("Seller", "password", login);
+        sellerDB.updatePassword(password, login);
     }
 
     public boolean checkAdminPassword(String password) {

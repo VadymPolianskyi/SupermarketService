@@ -12,15 +12,21 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import ua.com.polyanski.DBService.ConnectGoodsDB;
+import ua.com.polyanski.DBService.ConnectSalesDB;
 import ua.com.polyanski.userService.CashRegisterImpl;
 import ua.com.polyanski.userService.StringUtilities;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
+import ua.com.polyanski.userService.data.Sale;
 
 import javax.swing.plaf.basic.BasicButtonUI;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CashRegisterController {
+
 
     MainApp mainApp;
 
@@ -29,6 +35,13 @@ public class CashRegisterController {
     }
 
     Goods goods = new Goods();
+
+    String sellerName;
+    String sellerSurname;
+    public void setNameSurnameSeller(String sellerName, String sellerSurname) {
+        this.sellerName = sellerName;
+        this.sellerSurname = sellerSurname;
+    }
 
     Good addGood = null;
     ConnectGoodsDB connectGoodsDB;
@@ -57,6 +70,8 @@ public class CashRegisterController {
     Label sellerLowLabel;
     @FXML
     Label timelowLabel;
+    @FXML
+    Label barCodeExceptionLabel;
 
 
     @FXML
@@ -93,6 +108,7 @@ public class CashRegisterController {
 
     public void writing() {
         if(barCodeField.getText().length() == 8) {
+            barCodeExceptionLabel.setText("");
             connectGoodsDB = new ConnectGoodsDB();
             connectGoodsDB.setBarcode(barCodeField.getText());
             Goods show = connectGoodsDB.select();
@@ -104,15 +120,13 @@ public class CashRegisterController {
             dataModelLabel.setText(show.get(0).getModel());
             dataSaleLabel.setText(String.valueOf(show.get(0).getPrice()));
             addGood = show.get(0);
-        }else {
-            System.out.println(barCodeField.getText().length());
+        } else if ( barCodeField.getText().length() > 8) {
+            barCodeExceptionLabel.setText("Too many characters..");
         }
     }
 
     public void add() {
-        if (addGood == null) {
-
-        } else {
+        if (addGood != null) {
             if (numberField.getText().length() == 0) {
                 addGood.setNumber(1);
                 addGood.newPriceWithSale();
@@ -151,8 +165,16 @@ public class CashRegisterController {
     }
 
     public void buy() {
+        ConnectSalesDB connectSalesDB = new ConnectSalesDB();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        String data = dateFormat.format(date).replaceAll("/", "-");
+        for(Good good: goodData) {
+            connectSalesDB.insert(new Sale(0, sellerName, sellerSurname, good.getName(), good.getPrice(), data, good.getNumber()));
+        }
 
-        System.out.println(cashRegister.bill(goods));
+        mainApp.setPrice(cashRegister.bill(goods));
+        mainApp.showWindow("remainder.fxml", "Remainder");
         // open inform dialog with
     }
 

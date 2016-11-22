@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.TableSalesController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.TableSalesController">
   <children>
     <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -31,19 +31,19 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
               </columnResizePolicy>
               <columns>
-                <TableColumn prefWidth="75.0" text="Seller's name" fx:id="sellersNameColumn" />
-                <TableColumn prefWidth="75.0" text="Seller's surname" fx:id="sellersSurnameColumn" />
-                <TableColumn prefWidth="75.0" text="Good" fx:id="goodColumn" />
-                <TableColumn prefWidth="75.0" text="Date" fx:id="dateColumn" />
-                <TableColumn prefWidth="75.0" text="Price" fx:id="priceColumn" />
-                <TableColumn prefWidth="75.0" text="Number" fx:id="numberColumn" />
+                <TableColumn fx:id="sellersNameColumn" prefWidth="75.0" text="Seller's name" />
+                <TableColumn fx:id="sellersSurnameColumn" prefWidth="75.0" text="Seller's surname" />
+                <TableColumn fx:id="goodColumn" prefWidth="75.0" text="Good" />
+                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
+                <TableColumn fx:id="numberColumn" prefWidth="75.0" text="Number" />
               </columns>
             </TableView>
           </children>
         </AnchorPane>
         <AnchorPane minHeight="53.0" prefHeight="64.0" prefWidth="600.0">
           <children>
-            <Button fx:id="cancelButton" minHeight="18.999900000002526" mnemonicParsing="false" onAction="#cancelClick" prefHeight="24.0" text="Cancel" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0" />
+            <Button fx:id="cancelButton" defaultButton="true" minHeight="18.999900000002526" mnemonicParsing="false" onAction="#cancelClick" prefHeight="24.0" text="Cancel" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0" />
           </children>
         </AnchorPane>
       </children>
