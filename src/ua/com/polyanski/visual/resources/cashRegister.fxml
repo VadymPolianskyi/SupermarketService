@@ -18,9 +18,9 @@
       <menus>
         <Menu mnemonicParsing="false" text="%language">
           <items>
-            <MenuItem fx:id="oneItem" mnemonicParsing="false" text="Українська" />
-            <MenuItem fx:id="twoItem" mnemonicParsing="false" text="Русский" />
-            <MenuItem fx:id="threeItem" mnemonicParsing="false" text="English" />
+            <MenuItem fx:id="oneItem" mnemonicParsing="false" onAction="#languageUkraineItem" text="Українська" />
+            <MenuItem fx:id="twoItem" mnemonicParsing="false" onAction="#languageRussianItem" text="Русский" />
+            <MenuItem fx:id="threeItem" mnemonicParsing="false" onAction="#languageEnglishItem" text="English" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="%help">

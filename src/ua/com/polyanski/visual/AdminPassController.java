@@ -3,6 +3,7 @@ package ua.com.polyanski.visual;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ua.com.polyanski.userService.PasswordService;
 
@@ -23,6 +24,11 @@ public class AdminPassController implements Initializable {
     TextField passwordAdminField;
     @FXML
     Button signInButton;
+
+    @FXML
+    Label exceptionLabel;
+
+
     ResourceBundle resourceBundle;
 
     public void checkPass() {
@@ -30,8 +36,10 @@ public class AdminPassController implements Initializable {
         if(passServ.checkAdminPassword(passwordAdminField.getText())) {
             mainApp.showWindow("addGoodsAndSellers.fxml", resourceBundle.getString("admin"));
             signInButton.getScene().getWindow().hide();
+            exceptionLabel.setText("");
         } else {
             passwordAdminField.clear();
+            exceptionLabel.setText(resourceBundle.getString("wrong_password"));
         }
     }
 

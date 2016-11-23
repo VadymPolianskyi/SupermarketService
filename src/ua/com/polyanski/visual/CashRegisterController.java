@@ -234,9 +234,21 @@ public class CashRegisterController implements Initializable {
         timeline.play();
     }
 
-    public void languageUkraineItem() {mainApp.setLocalLanguage("ukr");}
-    public void languageRussianItem() {mainApp.setLocalLanguage("rus");}
-    public void languageEnglishItem() {mainApp.setLocalLanguage("en");}
+    public void languageUkraineItem() {
+        mainApp.setLocalLanguage("ukr");
+        buyButton.getScene().getWindow().hide();
+        mainApp.showWindow("cashRegister.fxml", "Касовий апарат");
+    }
+    public void languageRussianItem() {
+        mainApp.setLocalLanguage("rus");
+        buyButton.getScene().getWindow().hide();
+        mainApp.showWindow("cashRegister.fxml", "Кассовый аппарат");
+    }
+    public void languageEnglishItem() {
+        mainApp.setLocalLanguage("en");
+        buyButton.getScene().getWindow().hide();
+        mainApp.showWindow("cashRegister.fxml", "Cash register");
+    }
 
     public void aboutItem() {
         mainApp.showWindow("about.fxml", resourcesBundle.getString("service_about"));

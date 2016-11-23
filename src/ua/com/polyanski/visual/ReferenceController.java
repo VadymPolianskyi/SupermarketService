@@ -30,22 +30,22 @@ public class ReferenceController implements Initializable{
 
     @FXML
     public void initialize() {
-        TreeItem<String> help = new TreeItem<>("Help");
-        TreeItem<String> Administrator = new TreeItem<>("Administrator");
-        TreeItem<String> Seller = new TreeItem<>("Seller");
-        TreeItem<String> Language = new TreeItem<>("Change language");
+        TreeItem<String> help = new TreeItem<>(resourceBundle.getString("help"));
+        TreeItem<String> Administrator = new TreeItem<>(resourceBundle.getString("admin"));
+        TreeItem<String> Seller = new TreeItem<>(resourceBundle.getString("seller_simple"));
+        TreeItem<String> Language = new TreeItem<>(resourceBundle.getString("change_language"));
 
-        TreeItem<String> addingToAdmin = new TreeItem<>("Add data");
-        TreeItem<String> addingSmallDataToAdmin = new TreeItem<>("Add type/name/model");
-        TreeItem<String> changeDataAdmin = new TreeItem<>("Change good's/seller's data");
-        TreeItem<String> changePassword = new TreeItem<>("Change seller's password");
-        TreeItem<String> tableSales = new TreeItem<>("Viev table sales");
+        TreeItem<String> addingToAdmin = new TreeItem<>(resourceBundle.getString("add_data"));
+        TreeItem<String> addingSmallDataToAdmin = new TreeItem<>(resourceBundle.getString("add_type_name_model"));
+        TreeItem<String> changeDataAdmin = new TreeItem<>(resourceBundle.getString("change_good_seller_data"));
+        TreeItem<String> changePassword = new TreeItem<>(resourceBundle.getString("change_sellers_password"));
+        TreeItem<String> tableSales = new TreeItem<>(resourceBundle.getString("view_table_sales"));
 
-        TreeItem<String> sale = new TreeItem<>("Sale good");
-        TreeItem<String> add = new TreeItem<>("Add good");
-        TreeItem<String> delete = new TreeItem<>("Delete goog from list");
-        TreeItem<String> changeNumber = new TreeItem<>("Change number");
-        TreeItem<String> clearList = new TreeItem<>("Clear good's list");
+        TreeItem<String> sale = new TreeItem<>(resourceBundle.getString("sale_good"));
+        TreeItem<String> add = new TreeItem<>(resourceBundle.getString("add_good"));
+        TreeItem<String> delete = new TreeItem<>(resourceBundle.getString("delete_from_list"));
+        TreeItem<String> changeNumber = new TreeItem<>(resourceBundle.getString("change_number"));
+        TreeItem<String> clearList = new TreeItem<>(resourceBundle.getString("clear_list"));
 
 
         Administrator.setExpanded(false);
@@ -61,6 +61,106 @@ public class ReferenceController implements Initializable{
     }
 
     public void getAction(String value){
+        ukrAction(value);
+        enAction(value);
+        rusAction(value);
+    }
+
+    public void ukrAction(String value) {
+        switch (value){
+            case "Допомога ]" :
+                empty();
+                break;
+            case "Адміністратор ]" :
+                empty();
+                break;
+            case "Продавець ]" :
+                empty();
+                break;
+            case "Змінити мову ]" :
+                language();
+                break;
+            case "Додавання даних ]" :
+                addData();
+                break;
+            case "Додати тип/назву/модель ]" :
+                addSmallData();
+                break;
+            case "Змінити характеристики товарів/продавців ]" :
+                changeData();
+                break;
+            case "Змінити пароль продавця ]" :
+                changePassword();
+                break;
+            case "Дивитись таблицю продажів ]" :
+                viewSales();
+                break;
+            case "Продаж товару ]" :
+                saleGoods();
+                break;
+            case "Додавання товару ]" :
+                addGoods();
+                break;
+            case "Видалити товар зі списку ]" :
+                deleteGoods();
+                break;
+            case "Змінити кількість ]" :
+                changeNumberGood();
+                break;
+            case "Очистити список товарів ]" :
+                clearListGoods();
+                break;
+        }
+    }
+
+    public void rusAction(String value) {
+        switch (value){
+            case "Помощ ]" :
+                empty();
+                break;
+            case "Администратор ]" :
+                empty();
+                break;
+            case "Продавец ]" :
+                empty();
+                break;
+            case "Изменить язык ]" :
+                language();
+                break;
+            case "Добавление даных ]" :
+                addData();
+                break;
+            case "Добавить тип/название/модель ]" :
+                addSmallData();
+                break;
+            case "Изменить характеристики товаров/продавцов ]" :
+                changeData();
+                break;
+            case "Изменить пароль продавца ]" :
+                changePassword();
+                break;
+            case "Смотреть таблицу продаж ]" :
+                viewSales();
+                break;
+            case "Продажа товара ]" :
+                saleGoods();
+                break;
+            case "Добавление товара ]" :
+                addGoods();
+                break;
+            case "Удалить товар из списка ]" :
+                deleteGoods();
+                break;
+            case "Изменить количество ]" :
+                changeNumberGood();
+                break;
+            case "Очистить список товаров ]" :
+                clearListGoods();
+                break;
+        }
+    }
+
+    public void enAction(String value) {
         switch (value){
             case "Help ]" :
                 empty();

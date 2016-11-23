@@ -138,7 +138,7 @@ public class AddTypeNameModelController{
     }
 
     public void typeChangeClick() {
-        if (typeField.getText() != null) {
+        if (typeField.getText() != null && !(typeField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Type", "nameType");
 
             connectAnotherDB.update(typeField.getText(), selectType.getType());
@@ -147,7 +147,7 @@ public class AddTypeNameModelController{
     }
 
     public void nameChangeClick() {
-        if (nameField != null) {
+        if (nameField.getText() != null && !(nameField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Name", "name");
 
             connectAnotherDB.update(nameField.getText(), selectName.getName());
@@ -156,7 +156,7 @@ public class AddTypeNameModelController{
     }
 
     public void modelChangeClick() {
-        if (modelField != null) {
+        if (modelField.getText() != null && !(modelField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Model", "nameModel");
 
             connectAnotherDB.update(modelField.getText(), selectModel.getModel());
@@ -166,7 +166,7 @@ public class AddTypeNameModelController{
 
 
     public void typeAddClick() {
-        if (typeField.getText() != null) {
+        if (typeField.getText() != null && !(typeField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Type", "nameType");
 
             connectAnotherDB.insert(typeField.getText());
@@ -175,7 +175,7 @@ public class AddTypeNameModelController{
     }
 
     public void nameAddClick() {
-        if (nameField != null) {
+        if (nameField.getText() != null && !(nameField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Name", "name");
 
             connectAnotherDB.insert(nameField.getText());
@@ -184,7 +184,7 @@ public class AddTypeNameModelController{
     }
 
     public void modelAddClick() {
-        if (modelField != null) {
+        if (modelField.getText() != null && !(modelField.getText().equals(""))) {
             connectAnotherDB = new ConnectAnotherDB("spr_Model", "nameModel");
 
             connectAnotherDB.insert(modelField.getText());

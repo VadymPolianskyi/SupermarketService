@@ -3,6 +3,7 @@ package ua.com.polyanski.visual;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 import ua.com.polyanski.DBService.ConnectSellersDB;
@@ -26,6 +27,8 @@ public class LoginController implements Initializable {
     Button sigInButton;
     @FXML
     Button adminButton;
+    @FXML
+    Label exceptionLabel;
 
     ResourceBundle resourceBundle;
 
@@ -47,6 +50,7 @@ public class LoginController implements Initializable {
 
             } else {
                 passwordField.setText("");
+                exceptionLabel.setText(resourceBundle.getString("wrong_password_or_username"));
                 //show another
             }
         }

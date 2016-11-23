@@ -35,6 +35,7 @@
                <effect>
                   <DropShadow color="#59d79e" height="20.0" radius="9.5" spread="0.08" width="20.0" />
                </effect></Button>
+            <Label fx:id="exceptionLabel" layoutX="159.0" prefHeight="17.0" prefWidth="198.0" textFill="#fc0000" />
          </children>
       </AnchorPane>
    </children>

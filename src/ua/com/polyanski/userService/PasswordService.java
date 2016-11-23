@@ -3,6 +3,7 @@ package ua.com.polyanski.userService;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by vadym on 13.11.2016.
@@ -13,7 +14,8 @@ public class PasswordService {
 
     public boolean checkPassword(String login,String password) {
             sellerDB = new ConnectAnotherDB("Seller", "password", login);
-            if (sellerDB.select().get(0).equals(password)) {
+        ArrayList<String> passwordFromDB = sellerDB.select();
+            if ((passwordFromDB.isEmpty()) && passwordFromDB.equals(password)) {
                 return true;
             } else {
                 return false;

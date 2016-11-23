@@ -22,9 +22,9 @@
         </Menu>
         <Menu mnemonicParsing="false" text="%language">
           <items>
-            <MenuItem fx:id="ukraineItem" mnemonicParsing="false" text="Українська" />
-            <MenuItem fx:id="RussianItem" mnemonicParsing="false" text="Русский" />
-            <MenuItem fx:id="EnglishItem" mnemonicParsing="false" text="English" />
+            <MenuItem fx:id="ukraineItem" mnemonicParsing="false" onAction="#languageUkraineItem" text="Українська" />
+            <MenuItem fx:id="RussianItem" mnemonicParsing="false" onAction="#languageRussianItem" text="Русский" />
+            <MenuItem fx:id="EnglishItem" mnemonicParsing="false" onAction="#languageEnglishItem" text="English" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="%help">
@@ -45,13 +45,10 @@
                   <children>
                     <AnchorPane prefHeight="60.0" prefWidth="600.0">
                       <children>
-                        <Label alignment="CENTER" layoutX="20.0" layoutY="7.0" prefHeight="60.0" prefWidth="560.0" text="%goods" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="7.0">
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="7.0" prefHeight="60.0" prefWidth="560.0" text="%goods" textFill="#3ab190" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="7.0">
                           <font>
                             <Font name="System Bold" size="45.0" fx:id="x2" />
                           </font>
-                          <textFill>
-                            <Color blue="0.345" green="0.459" red="0.325" fx:id="x3" />
-                          </textFill>
                         </Label>
                       </children>
                     </AnchorPane>
@@ -68,10 +65,10 @@
                         <Label fx:id="priceLabel" font="$x1" text="%price_sec" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="68.0" />
                         <Label id="numberLabel" fx:id="modelLabel" font="$x1" layoutX="300.0" layoutY="72.0" text="%model_sec" />
                         <Label fx:id="saleLabel" layoutY="95.0" text="%sale" AnchorPane.leftAnchor="20.0" />
-                        <TextField fx:id="barCodeField" layoutX="91.0" layoutY="11.0" promptText="%bar_prompt" />
-                        <TextField id="nameField" fx:id="numberField" layoutX="91.0" AnchorPane.topAnchor="38.0" />
-                        <TextField fx:id="priceField" layoutX="91.0" promptText="%price_prompt" AnchorPane.topAnchor="65.0" />
-                        <TextField fx:id="saleField" layoutX="91.0" promptText="\%" AnchorPane.topAnchor="91.0" />
+                        <TextField fx:id="barCodeField" layoutX="106.0" layoutY="12.0" promptText="%bar_prompt" />
+                        <TextField id="nameField" fx:id="numberField" layoutX="106.0" layoutY="38.0" AnchorPane.topAnchor="38.0" />
+                        <TextField fx:id="priceField" layoutX="106.0" layoutY="30.0" promptText="%price_prompt" AnchorPane.topAnchor="66.0" />
+                        <TextField fx:id="saleField" layoutX="106.0" layoutY="91.0" promptText="\%" AnchorPane.topAnchor="91.0" />
                         <ComboBox fx:id="typeComboBox" layoutX="417.0" layoutY="14.0" prefHeight="21.0" prefWidth="145.0" promptText="Choose">
                           <items>
                             <FXCollections fx:factory="observableArrayList">
@@ -145,7 +142,7 @@
               <children>
                 <AnchorPane prefHeight="83.0" prefWidth="600.0">
                   <children>
-                    <Label alignment="CENTER" font="$x2" layoutX="130.0" layoutY="4.0" prefHeight="66.0" prefWidth="341.0" text="%sellers" textFill="$x3" />
+                    <Label alignment="CENTER" font="$x2" layoutX="130.0" layoutY="4.0" prefHeight="66.0" prefWidth="341.0" text="%sellers" textFill="#3ab190" />
                   </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="138.0" prefWidth="600.0">

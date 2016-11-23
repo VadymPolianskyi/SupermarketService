@@ -155,8 +155,7 @@ public class AddGoodsAndSellersController implements Initializable {
 
     private void initDataGoods() {
         ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
-        Goods goods = new Goods();
-        goods = connectGoodsDB.select();
+        Goods goods = connectGoodsDB.select();
 
         for (int i = 0; i < goods.size(); i++ ) {
             goodData.add(goods.get(i));
@@ -180,8 +179,10 @@ public class AddGoodsAndSellersController implements Initializable {
         if (selectGood != null) {
             connectGoodsDB = new ConnectGoodsDB();
             try {
-                connectGoodsDB.update(new Good(barCodeField.getText(), selectGood.getId(), typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
-                        modelComboBox.getValue().toString(), correctData(expirationDateField.getText()), Double.parseDouble(priceField.getText()), Integer.parseInt(numberField.getText()),
+                connectGoodsDB.update(new Good(barCodeField.getText(), selectGood.getId(),
+                        typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
+                        modelComboBox.getValue().toString(), correctData(expirationDateField.getText()),
+                        Double.parseDouble(priceField.getText()), Integer.parseInt(numberField.getText()),
                         Integer.parseInt(saleField.getText()), 0));
                 initialize();
             } catch (NumberFormatException e) {
@@ -241,8 +242,6 @@ public class AddGoodsAndSellersController implements Initializable {
 
 
     public void addGoods() {
-        if (barCodeField.getText() != null && expirationDateField.getText() != null && priceField.getText() != null &&
-                numberField.getText() != null && saleField.getText() != null) {
             try {
 
                 ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
@@ -252,14 +251,11 @@ public class AddGoodsAndSellersController implements Initializable {
                 connectGoodsDB.insert(good);
                 goodData.add(good);
             } catch (NullPointerException e) {
-                System.out.println("NullPointerException..");
+                mainApp.setMessage(resourceBundle.getString("fill_fields"));
+                mainApp.showWindow("informSecond.fxml", resourceBundle.getString("information_message"));
             }
-        }
-
     }
     public void addSellers() {
-        if (nameSecondField.getText()!= null && surnameSecondField.getText() != null &&
-                birthSecondField.getText() != null && loginSecondField.getText() != null){
             try {
                 ConnectSellersDB connectSellersDB = new ConnectSellersDB();
                 Seller seller = new Seller(maxIDSeller + 1, nameSecondField.getText(), surnameSecondField.getText(),
@@ -269,9 +265,9 @@ public class AddGoodsAndSellersController implements Initializable {
 
                 sellerData.add(seller);
             } catch (NullPointerException e) {
-                System.out.println("NullPointerException..");
+                mainApp.setMessage(resourceBundle.getString("fill_fields"));
+                mainApp.showWindow("informSecond.fxml", resourceBundle.getString("information_message"));
             }
-        }
     }
 
     public void closeGoods() {
@@ -293,7 +289,8 @@ public class AddGoodsAndSellersController implements Initializable {
             return formatter.format(date);
 
         } catch (ParseException e) {
-            System.out.println("problem with date");
+            mainApp.setMessage(resourceBundle.getString("not_correct_date"));
+            mainApp.showWindow("informSecond.fxml", resourceBundle.getString("information_message"));
         }
         return null;
     }
@@ -307,12 +304,25 @@ public class AddGoodsAndSellersController implements Initializable {
     }
 
     public void exitItem() {
-        closeGoods();
+        mainApp.setCloseButton(closeButton);
+        mainApp.informationDilogYesNo(closeButton, resourceBundle.getString("want_Exit"));
     }
 //---------------------------------------------
-    public void languageUkraineItem() {mainApp.setLocalLanguage("ukr");}
-    public void languageRussianItem() {mainApp.setLocalLanguage("rus");}
-    public void languageEnglishItem() {mainApp.setLocalLanguage("en");}
+public void languageUkraineItem() {
+        mainApp.setLocalLanguage("ukr");
+        closeButton.getScene().getWindow().hide();
+        mainApp.showWindow("addGoodsAndSellers.fxml", "Адміністратор");
+}
+    public void languageRussianItem() {
+        mainApp.setLocalLanguage("rus");
+        closeButton.getScene().getWindow().hide();
+        mainApp.showWindow("addGoodsAndSellers.fxml", "Администратор");
+    }
+    public void languageEnglishItem() {
+        mainApp.setLocalLanguage("en");
+        closeButton.getScene().getWindow().hide();
+        mainApp.showWindow("addGoodsAndSellers.fxml", "Administrator");
+    }
 //---------------------------------------------
 
 
