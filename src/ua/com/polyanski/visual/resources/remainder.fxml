@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.RemainderController">
-   <children>
-      <AnchorPane prefHeight="197.0" prefWidth="600.0" style="-fx-background-color: white;">
-         <children>
-            <ImageView fitHeight="186.0" fitWidth="153.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/pictures/money.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="259.0" layoutY="24.0" prefHeight="50.0" prefWidth="225.0" text="Remainder:" textFill="#4ba389">
-               <font>
-                  <Font name="System Bold" size="38.0" />
-               </font>
-            </Label>
-            <Label fx:id="remainderLabel" alignment="CENTER" layoutX="259.0" layoutY="89.0" prefHeight="50.0" prefWidth="225.0" text="00.00" textFill="#ff3030">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Label>
-            <Label fx:id="priceLabel" layoutX="307.0" layoutY="159.0" text="Price: (00.00)" textFill="#ff24248b">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="90.0" prefWidth="600.0">
-         <children>
-            <Label layoutX="83.0" layoutY="25.0" text="Given money: " textFill="#499779">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <TextField fx:id="moneyField" layoutX="258.0" layoutY="29.0" promptText="00.00" />
-            <Label fx:id="informLabel" layoutX="258.0" layoutY="57.0" prefHeight="17.0" prefWidth="118.0" textFill="#ff0c0c" />
-            <Button defaultButton="true" layoutX="439.0" layoutY="29.0" mnemonicParsing="false" onAction="#payClick" prefHeight="25.0" prefWidth="68.0" text="Pay" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: white;">
-         <children>
-            <Button fx:id="completeButton" layoutX="489.0" layoutY="15.0" mnemonicParsing="false" onAction="#completeClick" text="Complete" />
-         </children>
-      </AnchorPane>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.RemainderController">
+  <children>
+    <AnchorPane prefHeight="197.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <children>
+        <ImageView fitHeight="186.0" fitWidth="153.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="/pictures/money.png" />
+          </image>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="259.0" layoutY="24.0" prefHeight="50.0" prefWidth="225.0" text="%remainder" textFill="#4ba389">
+          <font>
+            <Font name="System Bold" size="38.0" />
+          </font>
+        </Label>
+        <Label fx:id="remainderLabel" alignment="CENTER" layoutX="259.0" layoutY="89.0" prefHeight="50.0" prefWidth="225.0" text="00.00" textFill="#ff3030">
+          <font>
+            <Font name="System Bold" size="48.0" />
+          </font>
+        </Label>
+        <Label fx:id="priceLabel" layoutX="307.0" layoutY="159.0" text="" textFill="#ff24248b">
+          <font>
+            <Font name="System Bold" size="21.0" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="90.0" prefWidth="600.0">
+      <children>
+        <Label layoutX="57.0" layoutY="25.0" prefWidth="182.0" text="%given_money" textFill="#499779">
+          <font>
+            <Font name="System Bold" size="22.0" />
+          </font>
+        </Label>
+        <TextField fx:id="moneyField" layoutX="258.0" layoutY="29.0" promptText="00.00" />
+        <Label fx:id="informLabel" layoutX="258.0" layoutY="57.0" prefHeight="17.0" prefWidth="212.0" textFill="#ff0c0c" />
+        <Button defaultButton="true" layoutX="439.0" layoutY="29.0" mnemonicParsing="false" onAction="#payClick" prefHeight="25.0" prefWidth="80.0" text="%pay" />
+      </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="55.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <children>
+        <Button fx:id="completeButton" layoutX="489.0" layoutY="15.0" mnemonicParsing="false" onAction="#completeClick" text="%complete" />
+      </children>
+    </AnchorPane>
+  </children>
 </VBox>

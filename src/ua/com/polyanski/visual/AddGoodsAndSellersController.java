@@ -3,6 +3,7 @@ package ua.com.polyanski.visual;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
@@ -13,14 +14,16 @@ import ua.com.polyanski.userService.data.Goods;
 import ua.com.polyanski.userService.data.Seller;
 import ua.com.polyanski.userService.data.Sellers;
 
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 /**
  * Created by vadym on 13.11.16.
  */
-public class AddGoodsAndSellersController {
+public class AddGoodsAndSellersController implements Initializable {
 
     private ObservableList<Good> goodData = FXCollections.observableArrayList();
     private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
@@ -67,6 +70,13 @@ public class AddGoodsAndSellersController {
 
     @FXML
     Button closeButton;
+
+    ResourceBundle resourceBundle;
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
+        this.resourceBundle = resourceBundle;
+        initialize();
+    }
 
     public void setMain(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -231,7 +241,9 @@ public class AddGoodsAndSellersController {
 
 
     public void addGoods() {
-        try {
+        if (barCodeField.getText() != null && expirationDateField.getText() != null && priceField.getText() != null &&
+                numberField.getText() != null && saleField.getText() != null) {
+            try {
 
                 ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
                 Good good = new Good(barCodeField.getText(), maxIDGood + 1, typeComboBox.getValue().toString(), nameComboBox.getValue().toString(),
@@ -239,22 +251,26 @@ public class AddGoodsAndSellersController {
                         Integer.parseInt(numberField.getText()), Integer.parseInt(saleField.getText()), 0);
                 connectGoodsDB.insert(good);
                 goodData.add(good);
-        } catch (NullPointerException e) {
-            System.out.println("NullPointerException..");
+            } catch (NullPointerException e) {
+                System.out.println("NullPointerException..");
+            }
         }
 
     }
     public void addSellers() {
-        try {
-            ConnectSellersDB connectSellersDB = new ConnectSellersDB();
-            Seller seller = new Seller(maxIDSeller + 1, nameSecondField.getText(), surnameSecondField.getText(),
-                    correctData(birthSecondField.getText()), loginSecondField.getText(),
+        if (nameSecondField.getText()!= null && surnameSecondField.getText() != null &&
+                birthSecondField.getText() != null && loginSecondField.getText() != null){
+            try {
+                ConnectSellersDB connectSellersDB = new ConnectSellersDB();
+                Seller seller = new Seller(maxIDSeller + 1, nameSecondField.getText(), surnameSecondField.getText(),
+                        correctData(birthSecondField.getText()), loginSecondField.getText(),
                         newPasswordField.getText(), 0);
-            connectSellersDB.insert(seller);
+                connectSellersDB.insert(seller);
 
-            sellerData.add(seller);
-        } catch (NullPointerException e) {
-            System.out.println("NullPointerException..");
+                sellerData.add(seller);
+            } catch (NullPointerException e) {
+                System.out.println("NullPointerException..");
+            }
         }
     }
 
@@ -283,28 +299,28 @@ public class AddGoodsAndSellersController {
     }
 
     public void tableSalesItem() {
-        mainApp.showWindow("tableSales.fxml", "Table sales");
+        mainApp.showWindow("tableSales.fxml", resourceBundle.getString("table_sales"));
     }
 
     public void addItem() {
-        mainApp.showWindow("addTypeNameModel.fxml", "Adding small data");
+        mainApp.showWindow("addTypeNameModel.fxml", resourceBundle.getString("add_type_name_model"));
     }
 
     public void exitItem() {
         closeGoods();
     }
 //---------------------------------------------
-    public void languageUkraineItem() {}
-    public void languageRussianItem() {}
-    public void languageEnglishItem() {}
+    public void languageUkraineItem() {mainApp.setLocalLanguage("ukr");}
+    public void languageRussianItem() {mainApp.setLocalLanguage("rus");}
+    public void languageEnglishItem() {mainApp.setLocalLanguage("en");}
 //---------------------------------------------
 
 
     public void aboutItem() {
-        mainApp.showWindow("about.fxml", "About");
+        mainApp.showWindow("about.fxml", resourceBundle.getString("service_about"));
     }
 
     public void helpItem() {
-        mainApp.showWindow("reference.fxml", "Help");
+        mainApp.showWindow("reference.fxml", resourceBundle.getString("help"));
     }
 }

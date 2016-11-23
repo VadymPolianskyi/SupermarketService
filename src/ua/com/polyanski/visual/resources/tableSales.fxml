@@ -14,7 +14,7 @@
       <children>
         <AnchorPane minHeight="70.0" prefHeight="70.0" prefWidth="600.0">
           <children>
-            <Label layoutX="178.0" layoutY="6.0" text="Table sales" textFill="#4a9d68">
+            <Label alignment="CENTER" layoutX="67.0" layoutY="6.0" prefHeight="70.0" prefWidth="518.0" text="%table_sales" textFill="#4a9d68">
               <font>
                 <Font name="System Bold" size="48.0" />
               </font>
@@ -31,19 +31,19 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
               </columnResizePolicy>
               <columns>
-                <TableColumn fx:id="sellersNameColumn" prefWidth="75.0" text="Seller's name" />
-                <TableColumn fx:id="sellersSurnameColumn" prefWidth="75.0" text="Seller's surname" />
-                <TableColumn fx:id="goodColumn" prefWidth="75.0" text="Good" />
-                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
-                <TableColumn fx:id="numberColumn" prefWidth="75.0" text="Number" />
+                <TableColumn fx:id="sellersNameColumn" prefWidth="75.0" text="%seller_name" />
+                <TableColumn fx:id="sellersSurnameColumn" prefWidth="75.0" text="%seller_surname" />
+                <TableColumn fx:id="goodColumn" prefWidth="75.0" text="%good" />
+                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="%date" />
+                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="%price" />
+                <TableColumn fx:id="numberColumn" prefWidth="75.0" text="%number" />
               </columns>
             </TableView>
           </children>
         </AnchorPane>
         <AnchorPane minHeight="53.0" prefHeight="64.0" prefWidth="600.0">
           <children>
-            <Button fx:id="cancelButton" defaultButton="true" minHeight="18.999900000002526" mnemonicParsing="false" onAction="#cancelClick" prefHeight="24.0" text="Cancel" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0" />
+            <Button fx:id="cancelButton" defaultButton="true" minHeight="18.999900000002526" mnemonicParsing="false" onAction="#cancelClick" prefHeight="24.0" text="%cancel" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0" />
           </children>
         </AnchorPane>
       </children>

@@ -1,14 +1,18 @@
 package ua.com.polyanski.visual;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  * Created by vadym on 19.11.2016.
  */
-public class ReferenceController {
+public class ReferenceController implements Initializable{
 
     @FXML
     TreeView treeView;
@@ -19,6 +23,8 @@ public class ReferenceController {
     Label secondStep;
     @FXML
     Label thirdStep;
+
+    ResourceBundle resourceBundle;
 
 
 
@@ -108,71 +114,75 @@ public class ReferenceController {
     }
 
     public void language() {
-        firstStep.setText("Choose menu item 'Language'.");
-        secondStep.setText("Change the language on the right.");
-        thirdStep.setText("Only 'Ukraine', 'Russian', 'English'.");
+        firstStep.setText(resourceBundle.getString("choose_language_help_first"));
+        secondStep.setText(resourceBundle.getString("choose_language_help_second"));
+        thirdStep.setText(resourceBundle.getString("choose_language_help_third"));
     }
 
     public void addData() {
-        firstStep.setText("You can select area by pressing  \nthe top tab(good/seller)");
-        secondStep.setText("Enter information in the all fields(good/seller).\n" +
-                "If you want to add seller enter password in \nfirst field 'New password'.");
-        thirdStep.setText("Click 'Add' when finished");
+        firstStep.setText(resourceBundle.getString("add_data_admin_first"));
+        secondStep.setText(resourceBundle.getString("add_data_admin_second"));
+        thirdStep.setText(resourceBundle.getString("add_data_admin_third"));
     }
 
     public void addSmallData() {
-        firstStep.setText("Click 'File' and then 'Add type/name/model' \nin top menu.");
-        secondStep.setText("Enter type/name/model in the field.");
-        thirdStep.setText("Click the appropriate button.");
+        firstStep.setText(resourceBundle.getString("add_small_data_admin_first"));
+        secondStep.setText(resourceBundle.getString("add_small_data_admin_second"));
+        thirdStep.setText(resourceBundle.getString("add_small_data_admin_third"));
     }
 
     public void changeData() {
-        firstStep.setText("Choose the item(good/seller) from the table.");
-        secondStep.setText("Change data in the fields(without password).");
-        thirdStep.setText("Click 'Change'.");
+        firstStep.setText(resourceBundle.getString("change_data_admin_help_first"));
+        secondStep.setText(resourceBundle.getString("change_data_admin_help_second"));
+        thirdStep.setText(resourceBundle.getString("change_data_admin_help_third"));
     }
 
     public void changePassword() {
-        firstStep.setText("Choose the item(seller) from the table.");
-        secondStep.setText("Enter old password and new password(twice).");
-        thirdStep.setText("Click 'Change password'.");
+        firstStep.setText(resourceBundle.getString("change_password_admin_first"));
+        secondStep.setText(resourceBundle.getString("change_password_admin_second"));
+        thirdStep.setText(resourceBundle.getString("change_password_admin_third"));
     }
 
     public void viewSales() {
-        firstStep.setText("Choose menu item 'File'.");
-        secondStep.setText("Then choose 'Table sales'.");
-        thirdStep.setText("If you want to close, just click 'Close'.");
+        firstStep.setText(resourceBundle.getString("view_sales_admin_help_first"));
+        secondStep.setText(resourceBundle.getString("view_sales_admin_help_second"));
+        thirdStep.setText(resourceBundle.getString("view_sales_admin_help_third"));
     }
 
     public void saleGoods() {
-        firstStep.setText("Enter the correct bar code in the appropriate field.");
-        secondStep.setText("Add the right products(click button 'add').");
-        thirdStep.setText("Click button 'Buy'.");
+        firstStep.setText(resourceBundle.getString("sale_goods_seller_help_first"));
+        secondStep.setText(resourceBundle.getString("sale_goods_seller_help_second"));
+        thirdStep.setText(resourceBundle.getString("sale_goods_seller_help_third"));
     }
 
     public void addGoods() {
-        firstStep.setText("Enter the correct bar code in the appropriate \nfield.");
-        secondStep.setText("Enter number if you want more goods then one.");
-        thirdStep.setText("Click button 'Add'.");
+        firstStep.setText(resourceBundle.getString("add_goods_seller_help_first"));
+        secondStep.setText(resourceBundle.getString("add_goods_seller_help_second"));
+        thirdStep.setText(resourceBundle.getString("add_goods_seller_help_third"));
     }
 
     public void deleteGoods() {
-        firstStep.setText("Choose good in the table.");
-        secondStep.setText("Click button 'Delete'.");
-        thirdStep.setText("That is all.");
+        firstStep.setText(resourceBundle.getString("delete_goods_seller_help_first"));
+        secondStep.setText(resourceBundle.getString("delete_goods_seller_help_second"));
+        thirdStep.setText(resourceBundle.getString("delete_goods_seller_help_third"));
     }
 
     public void changeNumberGood() {
-        firstStep.setText("Select good, delete it.");
-        secondStep.setText("Enter the right bar code. \nEnter the right number.");
-        thirdStep.setText("Click 'Add'.");
+        firstStep.setText(resourceBundle.getString("change_number_seller_help_first"));
+        secondStep.setText(resourceBundle.getString("change_number_seller_help_second"));
+        thirdStep.setText(resourceBundle.getString("change_number_seller_help_third"));
     }
 
     public void clearListGoods() {
-        firstStep.setText("Just click button 'Clear'.");
-        secondStep.setText("Your table is empty...");
+        firstStep.setText(resourceBundle.getString("clear_list_seller_help_first"));
+        secondStep.setText(resourceBundle.getString("clear_list_seller_help_second"));
         thirdStep.setText("");
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
+        this.resourceBundle = resourceBundle;
+        initialize();
+    }
 }

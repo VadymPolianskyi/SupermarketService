@@ -24,7 +24,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="142.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
-            <Label layoutX="43.0" layoutY="28.0" prefHeight="95.0" prefWidth="170.0" style="-fx-background-color: white;" text="This program was created to help supermarkets in their work. I hope, &quot;Supermarket service&quot; will give enjoy supermarket's workers." textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
+            <Label layoutX="43.0" layoutY="28.0" prefHeight="95.0" prefWidth="170.0" style="-fx-background-color: white;" text="%about_label" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="74.0" prefWidth="600.0">
@@ -34,7 +34,7 @@
                   <Image url="/pictures/about.png" />
                </image>
             </ImageView>
-            <Label layoutX="300.0" layoutY="27.0" text="© 2016 Vadym Polyanski " />
+            <Label layoutX="300.0" layoutY="27.0" text="%author" />
          </children>
       </AnchorPane>
    </children>

@@ -15,7 +15,7 @@
                   <Image url="@../../../../../pictures/inform.png" />
                </image>
             </ImageView>
-            <Label layoutX="141.0" layoutY="30.0" prefHeight="15.0" prefWidth="245.0" text="Information message:">
+            <Label layoutX="141.0" layoutY="30.0" prefHeight="15.0" prefWidth="245.0" text="%information_message">
                <font>
                   <Font size="16.0" />
                </font>
@@ -24,13 +24,13 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label fx:id="informationMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="13.0" prefWidth="356.0" text="Have you paid?" />
+            <Label fx:id="informationMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="13.0" prefWidth="356.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button fx:id="yesButton" defaultButton="true" layoutX="283.0" layoutY="7.0" mnemonicParsing="false" text="Yes" />
-            <Button fx:id="noButton" layoutX="345.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="No" />
+            <Button fx:id="yesButton" defaultButton="true" layoutX="283.0" layoutY="7.0" mnemonicParsing="false" onAction="#yes" text="%yes" />
+            <Button fx:id="noButton" layoutX="345.0" layoutY="7.0" mnemonicParsing="false" onAction="#no" prefHeight="25.0" prefWidth="41.0" text="%no" />
          </children>
       </AnchorPane>
    </children>

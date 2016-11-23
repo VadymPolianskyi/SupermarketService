@@ -1,14 +1,18 @@
 package ua.com.polyanski.visual;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import ua.com.polyanski.userService.PasswordService;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  * Created by vadym on 13.11.16.
  */
-public class AdminPassController {
+public class AdminPassController implements Initializable {
 
     MainApp mainApp;
 
@@ -19,14 +23,20 @@ public class AdminPassController {
     TextField passwordAdminField;
     @FXML
     Button signInButton;
+    ResourceBundle resourceBundle;
 
     public void checkPass() {
         PasswordService passServ = new PasswordService();
         if(passServ.checkAdminPassword(passwordAdminField.getText())) {
-            mainApp.showWindow("addGoodsAndSellers.fxml", "Administrator");
+            mainApp.showWindow("addGoodsAndSellers.fxml", resourceBundle.getString("admin"));
             signInButton.getScene().getWindow().hide();
         } else {
             passwordAdminField.clear();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
+        this.resourceBundle = resourceBundle;
     }
 }

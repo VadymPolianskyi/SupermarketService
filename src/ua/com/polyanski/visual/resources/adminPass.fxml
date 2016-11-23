@@ -9,14 +9,14 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="170.0">
          <children>
-            <Label layoutX="26.0" layoutY="56.0" text="Password:" />
+            <Label layoutX="26.0" layoutY="56.0" text="%password" />
             <PasswordField fx:id="passwordAdminField" layoutX="99.0" layoutY="53.0" />
-            <Label alignment="CENTER" layoutX="99.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" text="Administrator" textFill="#3f906b">
+            <Label alignment="CENTER" layoutX="99.0" layoutY="8.0" prefHeight="25.0" prefWidth="152.0" text="%admin" textFill="#3f906b">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Button  defaultButton="true" fx:id="signInButton" layoutX="264.0" layoutY="53.0" mnemonicParsing="false" onAction="#checkPass" text="Sign in" />
+            <Button  defaultButton="true" fx:id="signInButton" layoutX="264.0" layoutY="53.0" mnemonicParsing="false" onAction="#checkPass" text="%sign_in" />
          </children>
       </AnchorPane>
    </children>

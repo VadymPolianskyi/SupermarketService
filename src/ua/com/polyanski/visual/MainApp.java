@@ -11,6 +11,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class MainApp extends Application {
 
@@ -22,6 +24,12 @@ public class MainApp extends Application {
     private String sellerSurname;
     private double price;
 
+
+    public String localLanguage = "ukr";
+
+    public void setLocalLanguage(String language) {
+        this.localLanguage = language;
+    }
     @FXML
     Button closeButton;
 
@@ -37,7 +45,6 @@ public class MainApp extends Application {
         this.message = message;
     }
     public void setPrice(double price) {
-        System.out.println("Main set: " + price);
         this.price = price;
     }
 
@@ -45,8 +52,12 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root =(Parent) fxmlLoader.load(getClass().getResourceAsStream("../visual/resources/login.fxml"));
-        this.primaryStage.setTitle("Sig in");
+//        fxmlLoader.load(getClass().getResourceAsStream("../visual/resources/login.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("../visual/resources/login.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("ua.com.polyanski.bundles.Local", new Locale(localLanguage)));
+        Parent root = fxmlLoader.load();
+        this.primaryStage.setTitle(fxmlLoader.getResources().getString("sign_in"));
+        System.out.println();
         this.primaryStage.setResizable(false);
         this.primaryStage.getIcons().add(new Image("pictures/title.png"));
         this.primaryStage.setScene(new Scene(root));
@@ -58,14 +69,17 @@ public class MainApp extends Application {
     public void showWindow(String programName, String title) {
 
         try {
-            FXMLLoader loader  = new FXMLLoader();
-            Parent root = (Parent) loader.load(getClass().getResourceAsStream("../visual/resources/" + programName));
-
             anotherStage = new Stage();
+            FXMLLoader loader  = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../visual/resources/" + programName));
+            loader.setResources(ResourceBundle.getBundle("ua.com.polyanski.bundles.Local", new Locale(localLanguage)));
+            Parent root = loader.load();
+
             anotherStage.setTitle(title);
             anotherStage.setResizable(false);
             anotherStage.getIcons().add(new Image("pictures/title.png"));
-//            anotherStage.initModality(Modality.WINDOW_MODAL);
+
+            anotherStage.initModality(Modality.WINDOW_MODAL);
             anotherStage.initOwner(primaryStage);
             Scene scene = new Scene(root);
             anotherStage.setScene(scene);
@@ -90,6 +104,7 @@ public class MainApp extends Application {
                     break;
                 case "inform.fxml" :
                     InformController informController = loader.getController();
+                    informController.setMain(this);
                     informController.setMessage(message);
                     informController.setCloseButton(closeButton);
                     break;

@@ -15,11 +15,11 @@
          <children>
             <Accordion layoutX="-104.0" layoutY="-8.0" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <panes>
-                <TitledPane fx:id="firstLabel" animated="false" text="Step 1">
+                <TitledPane fx:id="firstLabel" animated="false" text="%step_first">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="firstStep" layoutX="146.0" layoutY="127.0" prefHeight="322.0" prefWidth="415.0" text="Step 1" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label fx:id="firstStep" layoutX="146.0" layoutY="127.0" prefHeight="322.0" prefWidth="415.0" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -27,11 +27,11 @@
                            </children></AnchorPane>
                   </content>
                 </TitledPane>
-                <TitledPane animated="false" text="Step 2">
+                <TitledPane animated="false" text="%step_second">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="secondStep" layoutX="72.0" layoutY="114.0" prefHeight="322.0" prefWidth="415.0" text="Step 2" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label fx:id="secondStep" layoutX="72.0" layoutY="114.0" prefHeight="322.0" prefWidth="415.0" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -39,11 +39,11 @@
                            </children></AnchorPane>
                   </content>
                 </TitledPane>
-                <TitledPane animated="false" text="Step 3">
+                <TitledPane animated="false" text="%step_third">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="thirdStep" layoutX="135.0" layoutY="103.0" prefHeight="322.0" prefWidth="415.0" text="Step 3" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label fx:id="thirdStep" layoutX="135.0" layoutY="103.0" prefHeight="322.0" prefWidth="415.0" textFill="#4c9a69" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>

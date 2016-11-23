@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.Label?>
@@ -15,26 +16,26 @@
   <children>
     <MenuBar>
       <menus>
-        <Menu mnemonicParsing="false" text="language">
+        <Menu mnemonicParsing="false" text="%language">
           <items>
-            <MenuItem fx:id="oneItem" mnemonicParsing="false" text="Ukraine" />
-            <MenuItem fx:id="twoItem" mnemonicParsing="false" text="Russian" />
+            <MenuItem fx:id="oneItem" mnemonicParsing="false" text="Українська" />
+            <MenuItem fx:id="twoItem" mnemonicParsing="false" text="Русский" />
             <MenuItem fx:id="threeItem" mnemonicParsing="false" text="English" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Help">
+        <Menu mnemonicParsing="false" text="%help">
           <items>
-            <MenuItem fx:id="helpItem" mnemonicParsing="false" onAction="#helpItem" text="Service help" />
-            <MenuItem fx:id="aboutItem" mnemonicParsing="false" onAction="#aboutItem" text="Service about" />
+            <MenuItem fx:id="helpItem" mnemonicParsing="false" onAction="#helpItem" text="%service_help" />
+            <MenuItem fx:id="aboutItem" mnemonicParsing="false" onAction="#aboutItem" text="%service_about" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#exitItem" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#exitItem" text="%exit" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <AnchorPane prefHeight="126.0" prefWidth="600.0">
       <children>
-        <Label fx:id="totalAmongLabel" alignment="CENTER" text="Total amoung:" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <Label fx:id="totalAmongLabel" alignment="CENTER" text="%total_amount" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
           <font>
             <Font name="System Bold" size="25.0" />
           </font>
@@ -53,12 +54,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
           </columnResizePolicy>
           <columns>
-            <TableColumn fx:id="barCodeColum" prefWidth="75.0" text="Bar code" />
-            <TableColumn fx:id="typeColum" prefWidth="75.0" text="Type" />
-            <TableColumn fx:id="nameColum" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="modelColum" prefWidth="75.0" text="Model" />
-            <TableColumn fx:id="numberColum" prefWidth="75.0" text="Number" />
-            <TableColumn fx:id="priceColum" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="barCodeColum" prefWidth="75.0" text="%bar_code" />
+            <TableColumn fx:id="typeColum" prefWidth="75.0" text="%type" />
+            <TableColumn fx:id="nameColum" prefWidth="75.0" text="%name" />
+            <TableColumn fx:id="modelColum" prefWidth="75.0" text="%model" />
+            <TableColumn fx:id="numberColum" prefWidth="75.0" text="%number" />
+            <TableColumn fx:id="priceColum" prefWidth="75.0" text="%price" />
           </columns>
         </TableView>
       </children>
@@ -66,28 +67,28 @@
     <AnchorPane prefHeight="124.0" prefWidth="600.0">
       <children>
         <TextField fx:id="barCodeField" layoutX="105.0" layoutY="16.0" onKeyReleased="#writing" prefHeight="25.0" prefWidth="90.0" promptText="write here..." />
-        <Label fx:id="barCodeLabel" layoutY="21.0" prefHeight="15.0" prefWidth="73.0" text="Bar code:" AnchorPane.leftAnchor="20.0">
+        <Label fx:id="barCodeLabel" layoutY="21.0" prefHeight="15.0" prefWidth="73.0" text="%bar_code_sec" AnchorPane.leftAnchor="20.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-        <Label fx:id="numberLabel" layoutX="240.0" layoutY="21.0" text="Number:">
+        <Label fx:id="numberLabel" layoutX="240.0" layoutY="21.0" text="%number_sec">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-        <TextField fx:id="numberField" layoutX="314.0" layoutY="16.0" prefHeight="25.0" prefWidth="90.0" promptText="write here..." />
-        <Label fx:id="typeLabel" prefHeight="15.0" prefWidth="120.0" text="Type:" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="88.0">
+        <TextField fx:id="numberField" layoutX="338.0" layoutY="17.0" prefHeight="25.0" prefWidth="90.0" promptText="write here..." />
+        <Label fx:id="typeLabel" prefHeight="15.0" prefWidth="120.0" text="%type_sec" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="88.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-        <Label fx:id="nameLabel" prefHeight="15.0" prefWidth="120.0" text="Name:" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="88.0">
+        <Label fx:id="nameLabel" prefHeight="15.0" prefWidth="120.0" text="%name_sec" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="88.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-        <Label fx:id="modelLabel" prefHeight="15.0" prefWidth="120.0" text="Model:" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="352.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="88.0">
+        <Label fx:id="modelLabel" prefHeight="15.0" prefWidth="120.0" text="%model_sec" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="352.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="88.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-        <Label fx:id="saleLabel" prefHeight="19.0" prefWidth="47.0" text="Sale:" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="505.5" AnchorPane.rightAnchor="47.5" AnchorPane.topAnchor="88.0">
+        <Label fx:id="saleLabel" layoutX="496.0" prefHeight="21.0" prefWidth="73.0" text="%sale_sec" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="496.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="88.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
@@ -108,18 +109,21 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Label fx:id="barCodeExceptionLabel" layoutX="105.0" layoutY="41.0" prefHeight="17.0" prefWidth="120.0" textFill="#fc0000" />
+            <Label fx:id="barCodeExceptionLabel" layoutX="105.0" layoutY="41.0" prefHeight="17.0" prefWidth="215.0" textFill="#fc0000" />
       </children>
     </AnchorPane>
     <AnchorPane prefHeight="200.0" prefWidth="200.0">
       <children>
-        <Label fx:id="sellerLowLabel" prefHeight="15.0" prefWidth="298.0" text="Seller" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+        <Label fx:id="sellerLowLabel" prefHeight="15.0" prefWidth="298.0" text="Seller" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" color="#5bc987" height="17.79" radius="14.325" spread="0.38" width="41.51" />
+               </effect></Label>
         <Pane prefHeight="70.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
           <children>
-            <Button fx:id="buyButton" layoutX="481.0" layoutY="23.0" mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="65.0" text="Buy" />
-            <Button fx:id="addButton" defaultButton="true" layoutX="190.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefWidth="65.0" text="Add" />
-            <Button fx:id="deleteButton" layoutX="385.0" layoutY="23.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="65.0" text="Delete" />
-            <Button fx:id="clearButton" layoutX="287.0" layoutY="23.0" mnemonicParsing="false" onAction="#clear" prefWidth="65.0" text="Clear" />
+            <Button fx:id="buyButton" layoutX="468.0" layoutY="23.0" mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="78.0" text="%buy" />
+            <Button fx:id="addButton" defaultButton="true" layoutX="177.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="78.0" text="%add" />
+            <Button fx:id="deleteButton" layoutX="372.0" layoutY="23.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="78.0" text="%delete" />
+            <Button fx:id="clearButton" layoutX="274.0" layoutY="23.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="78.0" text="%clear" />
           </children>
         </Pane>
         <Label fx:id="timelowLabel" prefHeight="15.0" prefWidth="273.0" text="Time:" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />

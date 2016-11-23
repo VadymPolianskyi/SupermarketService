@@ -1,6 +1,7 @@
 package ua.com.polyanski.visual;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
@@ -8,10 +9,13 @@ import ua.com.polyanski.DBService.ConnectSellersDB;
 import ua.com.polyanski.userService.PasswordService;
 import ua.com.polyanski.userService.data.Sellers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  * Created by vadym on 13.11.16.
  */
-public class LoginController {
+public class LoginController implements Initializable {
 
     MainApp mainApp;
     @FXML
@@ -22,6 +26,8 @@ public class LoginController {
     Button sigInButton;
     @FXML
     Button adminButton;
+
+    ResourceBundle resourceBundle;
 
     PasswordService passwordService = new PasswordService();
 
@@ -37,7 +43,7 @@ public class LoginController {
                 Sellers sellers = sellersDB.select();
                 mainApp.setNameSurnameSeller(sellers.get(0).getName(),sellers.get(0).getSurname());
                 sigInButton.getScene().getWindow().hide();
-                mainApp.showWindow("cashRegister.fxml", "Cash Register");
+                mainApp.showWindow("cashRegister.fxml", resourceBundle.getString("cash_register"));
 
             } else {
                 passwordField.setText("");
@@ -47,11 +53,16 @@ public class LoginController {
     }
 
     public void sigUp() {
-        mainApp.showWindow("registration.fxml", "Registration seller");
+        mainApp.showWindow("registration.fxml", resourceBundle.getString("registration_seller"));
     }
 
     public void sigInAdmin() {
         adminButton.getScene().getWindow().hide();
-        mainApp.showWindow("adminPass.fxml", "Admin sign in");
+        mainApp.showWindow("adminPass.fxml", resourceBundle.getString("admin_sign_in"));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
+        this.resourceBundle = resourceBundle;
     }
 }

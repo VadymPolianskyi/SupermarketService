@@ -20,7 +20,7 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" fx:id="x3" />
                   </columnResizePolicy>
                   <columns>
-                    <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+                    <TableColumn fx:id="typeColumn" prefWidth="75.0" text="%type" />
                   </columns>
                   <VBox.margin>
                     <Insets left="5.0" right="5.0" top="5.0" fx:id="x1" />
@@ -29,8 +29,8 @@
                 <AnchorPane minHeight="69.0" prefHeight="70.0" prefWidth="200.0">
                   <children>
                     <TextField fx:id="typeField" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0" />
-                    <Button fx:id="addTypeButton" layoutX="130.0" layoutY="49.0" mnemonicParsing="false" onAction="#typeAddClick" prefWidth="56.0" text="Add" />
-                    <Button fx:id="changeTypeButton" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" onAction="#typeChangeClick" text="Change" />
+                    <Button fx:id="addTypeButton" layoutX="121.0" layoutY="49.0" mnemonicParsing="false" onAction="#typeAddClick" prefHeight="25.0" prefWidth="65.0" text="%add" />
+                    <Button fx:id="changeTypeButton" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" onAction="#typeChangeClick" text="%change" />
                   </children>
                 </AnchorPane>
               </children>
@@ -42,14 +42,14 @@
               <children>
                 <TableView fx:id="nameTable" columnResizePolicy="$x3" prefHeight="271.0" prefWidth="190.0" VBox.margin="$x1">
                   <columns>
-                    <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                    <TableColumn fx:id="nameColumn" prefWidth="75.0" text="%name" />
                   </columns>
                 </TableView>
                 <AnchorPane minHeight="69.0" prefHeight="69.0" prefWidth="200.0">
                   <children>
                     <TextField fx:id="nameField" layoutY="14.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                    <Button fx:id="addNameButton" layoutX="134.0" layoutY="48.0" mnemonicParsing="false" onAction="#nameAddClick" prefWidth="56.0" text="Add" />
-                    <Button fx:id="changeNameButton" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#nameChangeClick" text="Change" />
+                    <Button fx:id="addNameButton" layoutX="125.0" layoutY="48.0" mnemonicParsing="false" onAction="#nameAddClick" prefHeight="25.0" prefWidth="65.0" text="%add" />
+                    <Button fx:id="changeNameButton" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#nameChangeClick" text="%change" />
                   </children>
                 </AnchorPane>
               </children>
@@ -58,14 +58,14 @@
               <children>
                 <TableView fx:id="modelTable" columnResizePolicy="$x3" prefHeight="271.0" prefWidth="190.0" VBox.margin="$x1">
                   <columns>
-                    <TableColumn fx:id="modelColumn" prefWidth="75.0" text="Model" />
+                    <TableColumn fx:id="modelColumn" prefWidth="75.0" text="%model" />
                   </columns>
                 </TableView>
                 <AnchorPane minHeight="69.0" prefHeight="69.0" prefWidth="200.0">
                   <children>
                     <TextField fx:id="modelField" layoutX="10.0" layoutY="14.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                    <Button fx:id="addModelButton" layoutX="134.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelAddClick" prefWidth="56.0" text="Add" />
-                    <Button fx:id="changeModelButton" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelChangeClick" text="Change" />
+                    <Button fx:id="addModelButton" layoutX="125.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelAddClick" prefHeight="25.0" prefWidth="65.0" text="%add" />
+                    <Button fx:id="changeModelButton" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" onAction="#modelChangeClick" text="%change" />
                   </children>
                 </AnchorPane>
               </children>
@@ -74,7 +74,7 @@
         </HBox>
         <AnchorPane minHeight="50.0" prefHeight="50.0" prefWidth="600.0">
           <children>
-            <Button fx:id="cancelButton" layoutX="534.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelClick" prefHeight="22.0" text="Cancel" AnchorPane.rightAnchor="10.0" />
+            <Button fx:id="cancelButton" layoutX="534.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelClick" prefHeight="22.0" text="%cancel" AnchorPane.rightAnchor="10.0" />
           </children>
         </AnchorPane>
       </children>

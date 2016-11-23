@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
@@ -19,16 +20,18 @@ import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 import ua.com.polyanski.userService.data.Sale;
 
-import javax.swing.plaf.basic.BasicButtonUI;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.ResourceBundle;
 
-public class CashRegisterController {
+public class CashRegisterController implements Initializable {
 
 
     MainApp mainApp;
+    ResourceBundle resourcesBundle;
 
     public void setMain(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -36,11 +39,12 @@ public class CashRegisterController {
 
     Goods goods = new Goods();
 
-    String sellerName;
-    String sellerSurname;
+    private String sellerName;
+    private String sellerSurname;
     public void setNameSurnameSeller(String sellerName, String sellerSurname) {
         this.sellerName = sellerName;
         this.sellerSurname = sellerSurname;
+        initialize();
     }
 
     Good addGood = null;
@@ -85,6 +89,12 @@ public class CashRegisterController {
     @FXML
     Button buyButton;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resourcesBundle) {
+        this.resourcesBundle  = resourcesBundle;
+        initialize();
+    }
+
 
     @FXML
     private void initialize() {
@@ -99,6 +109,8 @@ public class CashRegisterController {
 
         dataTable.setItems(goodData);
 
+        sellerLowLabel.setText( resourcesBundle.getString("seller") + " " + sellerName + " " + sellerSurname);
+
 
 
         bindToTime();
@@ -107,6 +119,7 @@ public class CashRegisterController {
 
 
     public void writing() {
+        addGood = null;
         if(barCodeField.getText().length() == 8) {
             barCodeExceptionLabel.setText("");
             connectGoodsDB = new ConnectGoodsDB();
@@ -115,14 +128,27 @@ public class CashRegisterController {
             if (show.size() == 0) {
                 return;
             }
+            setVievLabel(show.get(0).getType(), show.get(0).getName(),
+                    show.get(0).getModel(), String.valueOf(show.get(0).getPrice()));
             dataTypeLabel.setText(show.get(0).getType());
             dataNameLabel.setText(show.get(0).getName());
             dataModelLabel.setText(show.get(0).getModel());
             dataSaleLabel.setText(String.valueOf(show.get(0).getPrice()));
             addGood = show.get(0);
         } else if ( barCodeField.getText().length() > 8) {
-            barCodeExceptionLabel.setText("Too many characters..");
+            barCodeExceptionLabel.setText(resourcesBundle.getString("too_many_char_message"));
+            setVievLabel("", "", "", "");
+        } else if (barCodeField.getText().length() < 8) {
+            barCodeExceptionLabel.setText("");
+            setVievLabel("", "", "", "");
         }
+    }
+
+    public void setVievLabel(String type, String name, String model, String sale) {
+        dataTypeLabel.setText(type);
+        dataNameLabel.setText(name);
+        dataModelLabel.setText(model);
+        dataSaleLabel.setText(sale);
     }
 
     public void add() {
@@ -165,17 +191,27 @@ public class CashRegisterController {
     }
 
     public void buy() {
-        ConnectSalesDB connectSalesDB = new ConnectSalesDB();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        Date date = new Date();
-        String data = dateFormat.format(date).replaceAll("/", "-");
-        for(Good good: goodData) {
-            connectSalesDB.insert(new Sale(0, sellerName, sellerSurname, good.getName(), good.getPrice(), data, good.getNumber()));
-        }
+        if(!goodData.isEmpty()) {
+            ConnectSalesDB connectSalesDB = new ConnectSalesDB();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            String data = dateFormat.format(date).replaceAll("/", "-");
+            for (Good good : goodData) {
+                connectSalesDB.insert(new Sale(0, sellerName, sellerSurname, good.getName(), good.getPrice(), data, good.getNumber()));
+            }
 
-        mainApp.setPrice(cashRegister.bill(goods));
-        mainApp.showWindow("remainder.fxml", "Remainder");
-        // open inform dialog with
+            mainApp.setPrice(cashRegister.bill(goods));
+            mainApp.showWindow("remainder.fxml", resourcesBundle.getString("remainder_title"));
+            goodData.clear();
+            barCodeField.setText("");
+            setVievLabel("", "", "", "");
+            priceLabel.setText("00.0");
+            initialize();
+            // open inform dialog with
+        } else {
+            mainApp.setMessage(resourcesBundle.getString("add_goods"));
+            mainApp.showWindow("informSecond.fxml", resourcesBundle.getString("information_message"));
+        }
     }
 
     private void bindToTime() {
@@ -188,7 +224,7 @@ public class CashRegisterController {
                                 String minuteString = StringUtilities.pad(2, '0', time.get(Calendar.MINUTE) + "");
                                 String secondString = StringUtilities.pad(2, '0', time.get(Calendar.SECOND) + "");
 //                                String ampmString = time.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
-                                timelowLabel.setText("|  Time:  " +hourString + ":" + minuteString + ":" + secondString);
+                                timelowLabel.setText("|  "+ resourcesBundle.getString("time")+ "  " +hourString + ":" + minuteString + ":" + secondString);
                             }
                         }
                 ),
@@ -198,20 +234,20 @@ public class CashRegisterController {
         timeline.play();
     }
 
-    public void languageUkraineItem() {}
-    public void languageRussianItem() {}
-    public void languageEnglishItem() {}
+    public void languageUkraineItem() {mainApp.setLocalLanguage("ukr");}
+    public void languageRussianItem() {mainApp.setLocalLanguage("rus");}
+    public void languageEnglishItem() {mainApp.setLocalLanguage("en");}
 
     public void aboutItem() {
-        mainApp.showWindow("about.fxml", "About");
+        mainApp.showWindow("about.fxml", resourcesBundle.getString("service_about"));
     }
 
     public void helpItem() {
-        mainApp.showWindow("reference.fxml", "Help");
+        mainApp.showWindow("reference.fxml", resourcesBundle.getString("help"));
     }
 
     public void exitItem() {
-        mainApp.informationDilogYesNo(buyButton, "Do you want to exit?");
-        mainApp.showWindow("login.fxml", "Sign in");
+        mainApp.setCloseButton(buyButton);
+        mainApp.informationDilogYesNo(buyButton, resourcesBundle.getString("want_Exit"));
     }
 }

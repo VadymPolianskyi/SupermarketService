@@ -3,6 +3,7 @@ package ua.com.polyanski.visual;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,12 +12,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 import ua.com.polyanski.userService.smallDetails.*;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * Created by vadym on 19.11.2016.
  */
-public class AddTypeNameModelController {
+public class AddTypeNameModelController{
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
     private ObservableList<Name> nameData = FXCollections.observableArrayList();
     private ObservableList<Model> modelData = FXCollections.observableArrayList();
@@ -54,6 +57,7 @@ public class AddTypeNameModelController {
     TextField modelField;
     @FXML
     Button addModelButton;
+
 
     public void setMain(MainApp mainApp) {
         this.mainApp = mainApp;
