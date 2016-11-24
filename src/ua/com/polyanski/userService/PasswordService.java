@@ -1,5 +1,6 @@
 package ua.com.polyanski.userService;
 
+import ua.com.polyanski.DBService.ConnectAdminDB;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 
 import java.sql.SQLException;
@@ -32,6 +33,11 @@ public class PasswordService {
     }
 
     public boolean checkAdminPassword(String password) {
-        return password.equals("admin");
+        ConnectAdminDB connectAdminDB = new ConnectAdminDB();
+        if (password.equals(connectAdminDB.select().get(0)) || password.equals(connectAdminDB.select().get(1))){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

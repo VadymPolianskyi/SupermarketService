@@ -97,6 +97,10 @@ public class MainApp extends Application {
                     AdminPassController adminPassController = loader.getController();
                     adminPassController.setMain(this);
                     break;
+                case "changingAdmPass.fxml" :
+                    ChangingAdmPassController changingAdmPassController = loader.getController();
+                    changingAdmPassController.setMain(this);
+                    break;
                 case "cashRegister.fxml" :
                     CashRegisterController cashRegisterController = loader.getController();
                     cashRegisterController.setNameSurnameSeller(sellerName, sellerSurname);

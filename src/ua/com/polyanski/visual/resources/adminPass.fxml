@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AdminPassController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ua.com.polyanski.visual.AdminPassController">
   <children>
     <AnchorPane prefHeight="200.0" prefWidth="170.0">
       <children>
@@ -18,6 +18,11 @@
         </Label>
         <Button fx:id="signInButton" defaultButton="true" layoutX="264.0" layoutY="53.0" mnemonicParsing="false" onAction="#checkPass" text="%sign_in" />
         <Label fx:id="exceptionLabel" layoutX="99.0" layoutY="78.0" prefWidth="152.0" text="" textFill="RED" />
+        <Button layoutX="202.0" layoutY="84.0" minHeight="7.0" mnemonicParsing="false" onAction="#changeClick" prefHeight="24.0" prefWidth="130.0" text="%change password">
+          <font>
+            <Font size="12.0" />
+          </font>
+        </Button>
       </children>
     </AnchorPane>
   </children>

@@ -70,4 +70,9 @@ public class LoginController implements Initializable {
     public void initialize(URL location, ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;
     }
+
+    public void linkAction() {
+        mainApp.setMessage(resourceBundle.getString("ask_admin_pass_help"));
+        mainApp.showWindow("informSecond.fxml", resourceBundle.getString("information_message"));
+    }
 }

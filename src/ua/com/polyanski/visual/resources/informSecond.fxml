@@ -8,9 +8,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.com.polyanski.visual.InformSecondController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+      <AnchorPane prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="56.0" fitWidth="61.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../pictures/inform.png" />
                </image>
@@ -22,12 +22,12 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="47.0" prefWidth="400.0">
          <children>
-            <Label fx:id="informationMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="13.0" prefWidth="356.0" />
+            <Label fx:id="informationMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="8.0" prefHeight="31.0" prefWidth="356.0" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="44.0" prefWidth="400.0">
          <children>
             <Button fx:id="okButton" defaultButton="true" layoutX="327.0" layoutY="9.0" mnemonicParsing="false" onAction="#ok" prefHeight="25.0" prefWidth="52.0" text="%ok" />
          </children>

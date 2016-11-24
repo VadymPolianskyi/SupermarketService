@@ -47,4 +47,8 @@ public class AdminPassController implements Initializable {
     public void initialize(URL location, ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;
     }
+
+    public void changeClick(){
+        mainApp.showWindow("changingAdmPass.fxml", resourceBundle.getString("changing_admin_password"));
+    }
 }
