@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import ua.com.polyanski.DBService.ConnectSellersDB;
 import ua.com.polyanski.userService.data.Seller;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 /**
@@ -56,10 +55,6 @@ public class RegistrationController {
 
     public String getDateFromDP() {
         LocalDate localDate = dateBirth.getValue();
-//        SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD");
-////
-//        System.out.println(localDate);
-//        return format.format(localDate);
         return String.valueOf(localDate);
     }
 }

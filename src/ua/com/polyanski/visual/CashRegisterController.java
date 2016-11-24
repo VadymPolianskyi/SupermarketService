@@ -223,7 +223,6 @@ public class CashRegisterController implements Initializable {
                                 String hourString = StringUtilities.pad(2, ' ', time.get(Calendar.HOUR_OF_DAY) == 0 ? "12" : time.get(Calendar.HOUR_OF_DAY) + "");
                                 String minuteString = StringUtilities.pad(2, '0', time.get(Calendar.MINUTE) + "");
                                 String secondString = StringUtilities.pad(2, '0', time.get(Calendar.SECOND) + "");
-//                                String ampmString = time.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
                                 timelowLabel.setText("|  "+ resourcesBundle.getString("time")+ "  " +hourString + ":" + minuteString + ":" + secondString);
                             }
                         }

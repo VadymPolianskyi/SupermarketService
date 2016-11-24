@@ -65,7 +65,6 @@ public class ConnectGoodsDB extends ConnectDB {
             e.printStackTrace();
         } finally {
             try{if(conn!=null)conn.close();} catch (SQLException e) {e.printStackTrace();}
-//            try{if(stmt!=null)stmt.close();} catch (SQLException e) {e.printStackTrace();}
             try{if(res!= null) res.close();} catch (SQLException e) {e.printStackTrace();}
         }
         return null;
@@ -108,42 +107,4 @@ public class ConnectGoodsDB extends ConnectDB {
     public void setBarcode(String barcode) {
         this.barcode = "= '" + barcode + "'";
     }
-
-
-    /*
-    insert into Good (type, name, model, expiration_date, price, number)
-        select id, (select id from spr_Name where name = 'KitKat'),
-                   (select id from spr_Model where name = 'pindra'),
-                   '2016-05-04', 30, 5, 0 from spr_Type where name =  'fish'
-
-    --------------------------------------------------------------------------
-
-    select
-
-    type.name,
-    name.name,
-    model.name,
-    good.expiration_date,
-    good.price,
-    good.number,
-    good.sale,
-    good.flag
-
-    from Good good
-    inner join spr_Type type on good.type = type.id
-    inner join spr_Name name on good.name = name.id
-    inner join spr_Model model on good.model = model.id and good.id = 11 and flag = 0
-
-    --------------------------------------------------------------------------
-
-    update Good
-    set type = (select id from spr_Type where name = 'egg'),
-    name = (select id from spr_Name where name = 'Coca-Cola'),
-    model = (select id from spr_Model where name = 'white'),
-    expiration_date = '2016-11-12',
-    price = 31,
-    number = 2,
-    sale = 30,
-    flag = 0 where id = 13
-     */
 }

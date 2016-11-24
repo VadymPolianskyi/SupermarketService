@@ -32,7 +32,6 @@ public class InformController {
         this.closeButton = closeButton;
     }
     public void yes() {
-        System.out.println("yes");
         yesButton.getScene().getWindow().hide();
         closeButton.getScene().getWindow().hide();
         mainApp.showWindow("login.fxml", "Sign in");

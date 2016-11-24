@@ -7,5 +7,4 @@ import ua.com.polyanski.userService.data.Goods;
  */
 public interface CashRegister  {
     public double bill(Goods goods);
-    public boolean isPaid();
 }

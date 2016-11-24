@@ -52,7 +52,6 @@ public class LoginController implements Initializable {
             } else {
                 passwordField.setText("");
                 exceptionLabel.setText(resourceBundle.getString("wrong_password_or_username"));
-                //show another
             }
         }
     }

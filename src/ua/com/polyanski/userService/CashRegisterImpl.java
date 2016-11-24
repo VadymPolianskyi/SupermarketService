@@ -1,22 +1,18 @@
 package ua.com.polyanski.userService;
 
-import ua.com.polyanski.DBService.ConnectGoodsDB;
 import ua.com.polyanski.userService.data.Good;
 import ua.com.polyanski.userService.data.Goods;
 
 /**
  * Created by vadym on 10.11.2016.
  */
-public class CashRegisterImpl implements CashRegister{
-    ConnectGoodsDB connectGoodsDB = new ConnectGoodsDB();
-
-    boolean paid = false;
+public class CashRegisterImpl implements CashRegister {
 
     public static double purchasePrice(Good good) {
         int sale = good.getSale();
         double price = good.getPrice();
         if (sale != 0) {
-            return (price -  price * sale /100);
+            return (price - price * sale / 100);
         }
 
         return price;
@@ -26,18 +22,10 @@ public class CashRegisterImpl implements CashRegister{
     public double bill(Goods goods) {
         double price = 0;
         for (int i = 0; i < goods.size(); i++) {
-            price += purchasePrice(goods.get(i))* goods.get(i).getNumber();
+            price += purchasePrice(goods.get(i)) * goods.get(i).getNumber();
         }
 
         return price;
     }
 
-    public void setPaid() {
-        paid = true;
-    }
-
-    @Override
-    public boolean isPaid() {
-        return paid;
-    }
 }

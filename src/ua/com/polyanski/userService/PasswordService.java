@@ -3,9 +3,7 @@ package ua.com.polyanski.userService;
 import ua.com.polyanski.DBService.ConnectAdminDB;
 import ua.com.polyanski.DBService.ConnectAnotherDB;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by vadym on 13.11.2016.
@@ -27,10 +25,6 @@ public class PasswordService {
             }
     }
 
-    public void setNewPassword(String login, String password) {
-        sellerDB = new ConnectAnotherDB("Seller", "password", login);
-        sellerDB.updatePassword(password, login);
-    }
 
     public boolean checkAdminPassword(String password) {
         ConnectAdminDB connectAdminDB = new ConnectAdminDB();

@@ -25,7 +25,7 @@ public class MainApp extends Application {
     private double price;
 
 
-    public String localLanguage = "en";
+    public String localLanguage = "ukr";
 
     public void setLocalLanguage(String language) {
         this.localLanguage = language;
@@ -45,6 +45,7 @@ public class MainApp extends Application {
         this.message = message;
     }
     public void setPrice(double price) {
+        System.out.println("Main set: " + price);
         this.price = price;
     }
 
@@ -52,8 +53,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader();
-//        fxmlLoader.load(getClass().getResourceAsStream("../visual/resources/login.fxml"));
-        fxmlLoader.setLocation(getClass().getResource("../visual/resources/login.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("resources/login.fxml"));
         fxmlLoader.setResources(ResourceBundle.getBundle("ua.com.polyanski.bundles.Local", new Locale(localLanguage)));
         Parent root = fxmlLoader.load();
         this.primaryStage.setTitle(fxmlLoader.getResources().getString("sign_in"));
@@ -71,7 +71,7 @@ public class MainApp extends Application {
         try {
             anotherStage = new Stage();
             FXMLLoader loader  = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../visual/resources/" + programName));
+            loader.setLocation(getClass().getResource("resources/" + programName));
             loader.setResources(ResourceBundle.getBundle("ua.com.polyanski.bundles.Local", new Locale(localLanguage)));
             Parent root = loader.load();
 
@@ -96,10 +96,6 @@ public class MainApp extends Application {
                 case "adminPass.fxml" :
                     AdminPassController adminPassController = loader.getController();
                     adminPassController.setMain(this);
-                    break;
-                case "changingAdmPass.fxml" :
-                    ChangingAdmPassController changingAdmPassController = loader.getController();
-                    changingAdmPassController.setMain(this);
                     break;
                 case "cashRegister.fxml" :
                     CashRegisterController cashRegisterController = loader.getController();
@@ -149,7 +145,7 @@ public class MainApp extends Application {
     }
 
 
-    public void showApplication(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 }

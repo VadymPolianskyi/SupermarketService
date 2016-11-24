@@ -41,7 +41,6 @@ public class ConnectAdminDB extends ConnectDB{
             System.out.println("SQLExeption");
         } finally {
             try{if(conn!=null)conn.close();} catch (SQLException e) {e.printStackTrace();}
-//            try{if(stmt!=null)stmt.close();} catch (SQLException e) {e.printStackTrace();}
             try{if(res!= null) res.close();} catch (SQLException e) {e.printStackTrace();}
         }
         return null;
@@ -52,5 +51,4 @@ public class ConnectAdminDB extends ConnectDB{
                 "set password = '" + newPassword + "' where id = 2";
         changesTable(sql);
     }
-
 }
