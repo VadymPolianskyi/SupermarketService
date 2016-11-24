@@ -25,7 +25,7 @@ public class MainApp extends Application {
     private double price;
 
 
-    public String localLanguage = "ukr";
+    public String localLanguage = "en";
 
     public void setLocalLanguage(String language) {
         this.localLanguage = language;
@@ -149,7 +149,7 @@ public class MainApp extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public void showApplication(String[] args) {
         launch(args);
     }
 }
