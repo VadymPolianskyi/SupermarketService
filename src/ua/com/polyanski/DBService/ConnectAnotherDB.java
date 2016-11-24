@@ -37,6 +37,7 @@ public class ConnectAnotherDB extends ConnectDB{
 
             sql = "    select " + column +
                     "    from " + tableName +" "+ toPassword;
+            System.out.println(sql);
 
             stmt = conn.createStatement();
 

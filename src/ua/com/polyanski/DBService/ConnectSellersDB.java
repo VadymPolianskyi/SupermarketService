@@ -58,11 +58,12 @@ public class ConnectSellersDB extends ConnectDB {
     }
 
     public void insert(Seller seller) {
-        sql = "insert into Seller (nameSeller, surname, birthday, login, password) \n" +
+        sql = "insert into Seller (nameSeller, surname, birthday, login, password, flag) \n" +
                 "        values ('"+ seller.getName() +"', '"+ seller.getSurname()+ "', '" +
-                seller.getBirthday() + "', '"+ seller.getLogin() +"', '" + seller.getPassword() + "')";
+                seller.getBirthday() + "', '"+ seller.getLogin() +"', '" + seller.getPassword() + "', 0)";
 
         changesTable(sql);
+
     }
 
     public void update(Seller seller) {

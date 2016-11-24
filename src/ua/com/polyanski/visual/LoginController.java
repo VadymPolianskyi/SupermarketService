@@ -39,6 +39,7 @@ public class LoginController implements Initializable {
     }
 
     public void sigIn() {
+
         if (loginField.getText() != null|| passwordField.getText()!= null) {
             if (passwordService.checkPassword(loginField.getText(), passwordField.getText())) {
                 ConnectSellersDB sellersDB = new ConnectSellersDB();

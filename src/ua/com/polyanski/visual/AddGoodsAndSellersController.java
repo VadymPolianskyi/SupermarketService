@@ -235,6 +235,10 @@ public class AddGoodsAndSellersController implements Initializable {
             connectSellersDB.update(new Seller(selectSeller.getId(), selectSeller.getName(),
                     selectSeller.getSurname(), selectSeller.getBirthday(), selectSeller.getLogin(),
                         newPasswordField.getText(), 0));
+
+            oldPasswordField.clear();
+            newPasswordField.clear();
+            newPasswordAgainField.clear();
         }
 
     }
